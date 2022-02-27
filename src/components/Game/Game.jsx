@@ -2,6 +2,8 @@ import * as Tone from 'tone'
 import styles from './game.module.css'
 import { Link } from 'react-router-dom'
 
+let userHistory = []
+
 const synthSounds = {
   oscillator: {
     type: 'triangle2'
@@ -27,6 +29,7 @@ function playNote(note) {
     element.style.borderRadius = '0px'
   }, 1000)
 }
+// CPU turn: songArray.push >> nowPlayingArray >> loop thru nowPlayingArray, for each note: playNote(note)
 
 export default function Game() {
   return (
@@ -34,7 +37,12 @@ export default function Game() {
       <div className={styles.App}>
         <div className={styles.main}>
           <div className={styles.container}>
-            <div onClick={() => playNote('c3')} id="c3"></div>
+            <div
+              onClick={() => {
+                playNote('c3'), userHistory.push('c3')
+              }}
+              id="c3"
+            ></div>
             <div onClick={() => playNote('d3')} id="d3"></div>
             <div onClick={() => playNote('e3')} id="e3"></div>
             <div onClick={() => playNote('f3')} id="f3"></div>
