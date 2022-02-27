@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import MenuIcon from '@mui/icons-material/Menu'
 import { IconButton, MenuItem, Menu } from '@mui/material'
 
@@ -53,7 +54,7 @@ export default function HamburgerMenu() {
             borderRight: 2
           }}
         >
-          Play
+          <Link to="/home">Play</Link>
         </MenuItem>
         <MenuItem
           onClick={handleClose}
@@ -73,7 +74,7 @@ export default function HamburgerMenu() {
             borderRight: 2
           }}
         >
-          Leaderboard
+          <Link to="/leaderboard">Leaderboard</Link>
         </MenuItem>
         <MenuItem
           onClick={handleClose}
@@ -83,7 +84,7 @@ export default function HamburgerMenu() {
             borderRight: 2
           }}
         >
-          About Bop Simon
+          <Link to="/about">About Bop Simon</Link>
         </MenuItem>
       </Menu>
     </>

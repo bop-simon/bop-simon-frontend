@@ -19,56 +19,57 @@ font-family: 'Work Sans', sans-serif;
 
 body,
 html {
-	font-family: 'Work Sans', sans-serif;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 10px;
+  font-family: 'Work Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
 }
 
 a:link,
 a:visited {
-	text-decoration: none;
+  text-decoration: none;
+  color: black;
 }
 
 .splash {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .bodyStyles {
-	font-family: 'Work Sans', sans-serif;
-	color: #333333;
-	font-size: 1em;
-	font-weight: 400;
+  font-family: 'Work Sans', sans-serif;
+  color: #333333;
+  font-size: 1em;
+  font-weight: 400;
 }
 
 .appBar {
-	color: #333;
-	width: 90vw;
+  color: #333;
+  width: 90vw;
 }
 
 h1 {
-	font-family: 'Quicksand', sans-serif;
-	font-weight: 900;
-	font-size: 4em;
-	text-align: center;
-	color: #ff5c8a;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 900;
+  font-size: 4em;
+  text-align: center;
+  color: #ff5c8a;
 }
 /* see if <Typography variant="h1"> works */
 
 h2 {
-	font-family: 'Quicksand', sans-serif;
-	font-weight: 900;
-	font-size: 3em;
-	color: #a51fff;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 900;
+  font-size: 3em;
+  color: #a51fff;
 }
 
 h3 {
-	font-family: 'Ibm Plex Mono', monospace;
-	font-weight: 400;
-	font-size: 1em;
+  font-family: 'Ibm Plex Mono', monospace;
+  font-weight: 400;
+  font-size: 1em;
 }

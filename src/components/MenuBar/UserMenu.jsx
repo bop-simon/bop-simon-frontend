@@ -1,20 +1,21 @@
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import { IconButton, MenuItem, Menu } from '@mui/material';
+import AccountCircle from '@mui/icons-material/AccountCircle'
+import { IconButton, MenuItem, Menu } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 export default function UserMenu() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [auth, setAuth] = React.useState(true);
+  const [anchorEl, setAnchorEl] = React.useState(null)
+  const [auth, setAuth] = React.useState(true)
 
   const handleChange = (event) => {
-    setAuth(event.target.checked);
-  };
+    setAuth(event.target.checked)
+  }
   const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget)
+  }
 
   const handleClose = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+  }
 
   return (
     <>
@@ -34,18 +35,18 @@ export default function UserMenu() {
         anchorEl={anchorEl}
         anchorOrigin={{
           vertical: 'bottom',
-          horizontal: 'right',
+          horizontal: 'right'
         }}
         keepMounted
         transformOrigin={{
           vertical: 'top',
-          horizontal: 'right',
+          horizontal: 'right'
         }}
         open={Boolean(anchorEl)}
         onClose={handleClose}
         elevation={0}
         sx={{
-          padding: 0,
+          padding: 0
         }}
       >
         <MenuItem
@@ -54,10 +55,10 @@ export default function UserMenu() {
             borderTop: 2,
             borderBottom: 2,
             borderLeft: 2,
-            borderRight: 2,
+            borderRight: 2
           }}
         >
-          Profile
+          <Link to="/profile">Profile</Link>
         </MenuItem>
         <MenuItem
           onClick={handleClose}
@@ -65,12 +66,12 @@ export default function UserMenu() {
           sx={{
             borderBottom: 2,
             borderLeft: 2,
-            borderRight: 2,
+            borderRight: 2
           }}
         >
           Log Out
         </MenuItem>
       </Menu>
     </>
-  );
+  )
 }
