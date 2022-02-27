@@ -1,0 +1,27 @@
+.welcome {
+  font-family: 'Quicksand', sans-serif;
+  color: #ff5c8a;
+  font-weight: 700;
+  font-size: 5em;
+  margin: 50px 0px 50px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subheader {
+  font-family: 'Ibm Plex Mono', monospace;
+  color: #3bc06f;
+  font-size: 1.75em;
+  font-style: italic;
+  font-weight: 600;
+  margin: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.simon {
+  height: 15em;
+  border: 3px solid black;
+}

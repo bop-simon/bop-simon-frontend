@@ -1,0 +1,74 @@
+/* 
+Palette
+#FF5C8A Brink Pink
+#FCD116 Cyber Yellow
+#333333 Jet
+#A51FFF Purple x 11
+#C99DA3 Tuscany
+#3BC06F Bop Simon Green 
+*/
+
+/*
+Font-Families 
+font-family: 'Quicksand', sans-serif;
+font-family: 'IBM Plex Mono', monospace;
+font-family: 'Work Sans', sans-serif; 
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Quicksand:wght@300;400;500;600;700;800;900&family=Work+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+body,
+html {
+	font-family: 'Work Sans', sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 10px;
+}
+
+a:link,
+a:visited {
+	text-decoration: none;
+}
+
+.splash {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.bodyStyles {
+	font-family: 'Work Sans', sans-serif;
+	color: #333333;
+	font-size: 1em;
+	font-weight: 400;
+}
+
+.appBar {
+	color: #333;
+	width: 90vw;
+}
+
+h1 {
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 900;
+	font-size: 4em;
+	text-align: center;
+	color: #ff5c8a;
+}
+/* see if <Typography variant="h1"> works */
+
+h2 {
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 900;
+	font-size: 3em;
+	color: #a51fff;
+}
+
+h3 {
+	font-family: 'Ibm Plex Mono', monospace;
+	font-weight: 400;
+	font-size: 1em;
+}
