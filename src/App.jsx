@@ -12,16 +12,15 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={Theme}>
-        <BrowserRouter>
-          <MenuBar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/leaderboard" element={<Leaderboard />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/profile" element={<Profile />} />
-          </Routes>
-        </BrowserRouter>
+        <MenuBar />
+
+        <Routes>
+          <Route path="/" element={<Splash />} />
+          <Route path="home" element={<Home />} />
+          <Route path="leaderboard" element={<Leaderboard />} />
+          <Route path="about" element={<About />} />
+          <Route path="profile" element={<Profile />} />
+        </Routes>
       </ThemeProvider>
     </>
   )
