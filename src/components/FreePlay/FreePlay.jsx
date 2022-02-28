@@ -1,6 +1,5 @@
 import * as Tone from 'tone'
-import styles from './game.module.css'
-import { Link } from 'react-router-dom'
+import styles from './freeplay.module.css'
 
 const synthSounds = {
   oscillator: {
@@ -14,7 +13,7 @@ const synthSounds = {
   }
 }
 const limiter = new Tone.Limiter(-2)
-const synth = new Tone.Synth(synthSounds).chain(limiter, Tone.Master)
+const synth = new Tone.Synth(synthSounds).chain(limiter).toDestination()
 
 function playNote(note) {
   const element = document.getElementById(note)
@@ -33,7 +32,7 @@ export default function Game() {
     <section className={styles.gameMain}>
       <div className={styles.App}>
         <div className={styles.main}>
-          <p>This is the Game Play Board</p>
+          <p>This is the Free Play Board</p>
           <div className={styles.container}>
             <div onClick={() => playNote('c3')} id="c3"></div>
             <div onClick={() => playNote('d3')} id="d3"></div>

@@ -1,4 +1,4 @@
-import MenuBar from '../MenuBar/MenuBar'
+import MenuBar from '../../components/MenuBar/MenuBar'
 import styles from './leaderboard.css'
 
 export default function Leaderboard() {
