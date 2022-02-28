@@ -5,7 +5,7 @@ import simon from '../../assets/simon.png'
 export default function About() {
   return (
     <>
-      <MenuBar />
+      {/* <MenuBar /> */}
       <section className={styles.profileCard}>
         <h1>User Profile!</h1>
         <div>

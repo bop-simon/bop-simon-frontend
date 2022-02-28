@@ -5,7 +5,7 @@ import simon from '../../assets/simon.png'
 export default function About() {
   return (
     <>
-      <MenuBar />
+      {/* <MenuBar /> */}
       <section className={styles.aboutCard}>
         <h1 className={styles.aboutHeading}>About Bop Simon</h1>
         <div>
