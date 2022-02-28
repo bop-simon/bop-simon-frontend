@@ -27,6 +27,7 @@ const AuthProvider = ({children}) => {
       history.push('/home');
   }
 
+//You may rely on useMemo as a performance optimization, not as a semantic guarantee
   const operations = useMemo(() => ({ auth, signUpUser, signInUser, signOutUser}),[auth])
 
   return (
