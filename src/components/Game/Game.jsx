@@ -37,6 +37,15 @@ export default function Game() {
       <div className={styles.App}>
         <div className={styles.main}>
           <div className={styles.container}>
+            {/* 
+            C = Pink 
+            D = Yellow 
+            E = Grey 
+            F = Purple x 1,000 
+            G = Tuscany 
+            A = Bop Simon Green
+            B = Bop Simon Blue 
+            */}
             <div onClick={() => playNote('c2')} id="c2"></div>
             <div onClick={() => playNote('d2')} id="d2"></div>
             <div onClick={() => playNote('e2')} id="e2"></div>
