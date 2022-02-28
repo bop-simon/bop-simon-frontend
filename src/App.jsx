@@ -15,7 +15,7 @@ export default function App() {
         <BrowserRouter>
           <MenuBar />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Splash />} />
             <Route path="/home" element={<Home />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/about" element={<About />} />
