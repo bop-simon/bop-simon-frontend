@@ -15,6 +15,7 @@ Object {
             class="splash"
           >
             <div
+              aria-label="welcome"
               class="welcome"
             >
               Welcome to Bop Simon!
@@ -26,6 +27,7 @@ Object {
               src="/path/image"
             />
             <div
+              aria-label="clickAnywhere"
               class="subheader"
             >
               Click anywhere to begin.
@@ -46,6 +48,7 @@ Object {
           class="splash"
         >
           <div
+            aria-label="welcome"
             class="welcome"
           >
             Welcome to Bop Simon!
@@ -57,6 +60,7 @@ Object {
             src="/path/image"
           />
           <div
+            aria-label="clickAnywhere"
             class="subheader"
           >
             Click anywhere to begin.
