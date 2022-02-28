@@ -22,4 +22,3 @@ export const getHighScores = async(id) => {
     const userId = await res.json();
     return userId
 }
-//making a change here to push, delete this message later
