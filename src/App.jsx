@@ -13,7 +13,6 @@ export default function App() {
     <>
       <ThemeProvider theme={Theme}>
         <MenuBar />
-
         <Routes>
           <Route path="/" element={<Splash />} />
           <Route path="home" element={<Home />} />

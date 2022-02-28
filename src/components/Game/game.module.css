@@ -69,9 +69,6 @@ img {
   background: #009fb7;
 }
 
-/* .container div:nth-child(7n + 7) {
-  background: #009f93;
-} */
 .container::before {
   content: '';
   width: calc(var(--s) / 2 + var(--m));
