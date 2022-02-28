@@ -11,6 +11,7 @@ export default function About() {
   //this would probably take in a patch/put, check the backend and create that route in user.js
   //then return the updated user
   //}
+  //next we will
 
 
   return (
