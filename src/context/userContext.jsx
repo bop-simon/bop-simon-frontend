@@ -1,18 +1,16 @@
 import { useContext, createContext, useState } from "react";
-import { getAllUsers } from "../services/user";
+import { getUserById } from "../services/user";
 
 const UserContext = createContext()
 
 const UserProvider = ({children}) =>{
-    const currentUser = getAllUsers();
-    
-    const [users, setUsers] = useState(
-        //in state if it is the current user then spread the info otherwise return empty obj
-        //because this should, hypothetically, grab the username, fav songs, bio, and score if we spread it
-        currentUser ? {...currentUser} : {}
-    );
+    const [user, setUser] = useState({});
+    //still needs work--
+    const currentUser = getUserById(id)
 
-    return <UserContext.UserProvider value={{users, setUsers}}>{children}</UserContext.UserProvider>
+    setUser(currentUser);
+
+    return <UserContext.UserProvider value={{user, setUser}}>{children}</UserContext.UserProvider>
 
 }
 const useUser = () =>{

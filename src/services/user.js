@@ -10,7 +10,7 @@ export const getAllUsers = async () => {
 }
 
 //fetch by Id
-export const getUsersById = async(id) => {
+export const getUserById = async(id) => {
     const res = await fetch(`https://bop-simon.herokuapp.com/users/${id}`); 
     const userId = await res.json();
     return userId
