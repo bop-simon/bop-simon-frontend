@@ -1,6 +1,6 @@
 import * as Tone from 'tone'
 import styles from './freeplay.module.css'
-//this is a small change
+
 const synthSounds = {
   oscillator: {
     type: 'triangle2'
