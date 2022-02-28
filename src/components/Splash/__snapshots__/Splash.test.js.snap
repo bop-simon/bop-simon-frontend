@@ -7,63 +7,13 @@ Object {
     <div>
       <main
         class="splash"
-      >
-        <a
-          href="/home"
-        >
-          <main
-            class="splash"
-          >
-            <div
-              class="welcome"
-            >
-              Welcome to Bop Simon!
-            </div>
-            <img
-              alt="Bop-Simon"
-              class="simon"
-              height="50%"
-              src="/path/image"
-            />
-            <div
-              class="subheader"
-            >
-              Click anywhere to begin.
-            </div>
-          </main>
-        </a>
-      </main>
+      />
     </div>
   </body>,
   "container": <div>
     <main
       class="splash"
-    >
-      <a
-        href="/home"
-      >
-        <main
-          class="splash"
-        >
-          <div
-            class="welcome"
-          >
-            Welcome to Bop Simon!
-          </div>
-          <img
-            alt="Bop-Simon"
-            class="simon"
-            height="50%"
-            src="/path/image"
-          />
-          <div
-            class="subheader"
-          >
-            Click anywhere to begin.
-          </div>
-        </main>
-      </a>
-    </main>
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
