@@ -8,6 +8,9 @@ import About from './views/About/About'
 import Profile from './views/Profile/Profile'
 import Theme from './context/Theme.js'
 import MenuBar from './components/MenuBar/MenuBar'
+import Auth from './views/Auth/Auth.jsx'
+
+
 export default function App() {
   return (
     <>
@@ -15,6 +18,7 @@ export default function App() {
         <MenuBar />
         <Routes>
           <Route path="/" element={<Splash />} />
+          <Route path="auth" element={<Auth />} />
           <Route path="home" element={<Home />} />
           <Route path="leaderboard" element={<Leaderboard />} />
           <Route path="about" element={<About />} />
