@@ -16,7 +16,7 @@ const synthSounds = {
 }
 const limiter = new Tone.Limiter(-2)
 const synth = new Tone.Synth(synthSounds).chain(limiter)
-console.log( new Tone.Synth() , '============================')
+console.log(synth, '============================')
 
 function playNote(note) {
   const element = document.getElementById(note)
