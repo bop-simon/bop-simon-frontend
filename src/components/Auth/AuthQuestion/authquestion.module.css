@@ -1,0 +1,14 @@
+.authQuestion{
+  display:flex;
+  flex-direction: column;
+}
+
+.authQuestion >button {
+  transition: all 0.2s ease-in-out;
+  margin-top: 1.5vw;
+  margin-bottom: 1.5vw;
+}
+
+.authQuestion >button:hover {
+  transform: scale(1.05);
+}

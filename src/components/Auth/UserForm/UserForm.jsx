@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
 import { Button, TextField } from "@mui/material";
+import classes from './userform.module.css'
 
 
 export default function UserForm({ handleSubmit, handleChange, formState }) {
@@ -9,7 +9,7 @@ export default function UserForm({ handleSubmit, handleChange, formState }) {
   }
 
   return (
-    <>
+    <div className={classes.userForm}>
       <TextField 
         value={formState.username}
         onChange={handleChange}
@@ -28,7 +28,7 @@ export default function UserForm({ handleSubmit, handleChange, formState }) {
         onClick={handleClick}
         variant="outlined" 
       >next</Button>
-    </>
+    </div>
   )
 }
 
