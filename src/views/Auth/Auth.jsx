@@ -17,6 +17,8 @@ export default function Auth() {
 
   const handleSubmit = async () => {
     console.log("Form Data - handleSubmit", formData)
+    //will check to make sure the username, and password have enough characters
+    
   }
 
   const handleStateChange = (e) => {
