@@ -1,6 +1,3 @@
-//Prod - https://bop-simon-prod.herokuapp.com/
-//Main - https://bop-simon.herokuapp.com/
-
 import request from "superagent"
 
 //sign up
