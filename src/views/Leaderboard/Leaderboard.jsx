@@ -4,7 +4,7 @@ import styles from './leaderboard.css'
 export default function Leaderboard() {
   return (
     <>
-      {/* <MenuBar /> */}
+      <MenuBar />
       <section className={styles.leaderCard}>
         <ol>
           <h2>Rankings</h2>

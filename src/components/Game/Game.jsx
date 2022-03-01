@@ -1,6 +1,5 @@
 import * as Tone from 'tone'
 import styles from './game.module.css'
-import { Link } from 'react-router-dom'
 
 let userHistory = []
 

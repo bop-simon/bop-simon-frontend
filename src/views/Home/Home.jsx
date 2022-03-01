@@ -1,9 +1,9 @@
-import MenuBar from '../../components/MenuBar/MenuBar'
 import Game from '../../components/Game/Game'
 import FreePlay from '../../components/FreePlay/FreePlay'
 import styles from './home.css'
 import { useState } from 'react'
 import { FormControlLabel, FormGroup, Switch } from '@mui/material'
+import MenuBar from '../../components/MenuBar/MenuBar'
 
 export default function Home() {
   const [gamePlay, setGamePlay] = useState(false)
@@ -13,6 +13,7 @@ export default function Home() {
   }
   return (
     <main className={styles.home}>
+      <MenuBar />
       <FormGroup sx={{ display: 'block' }}>
         <FormControlLabel
           control={

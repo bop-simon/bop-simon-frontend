@@ -13,10 +13,9 @@ export default function About() {
   //}
   //next we will
 
-
   return (
     <>
-      {/* <MenuBar /> */}
+      <MenuBar />
       <section className={styles.profileCard}>
         <h1>User Profile!</h1>
         <div>
