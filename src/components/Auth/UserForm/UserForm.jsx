@@ -15,19 +15,25 @@ export default function UserForm({ handleSubmit, handleChange, formState }) {
         onChange={handleChange}
         name="username"
         label="username" 
-        color="secondary" 
+        color="purple" 
         focused />
       <TextField 
         value={formState.password}
         onChange={handleChange}
         name="password" 
         label="password" 
-        color="secondary" 
+        color="purple" 
         focused />
       <Button
         onClick={handleClick}
         variant="outlined" 
-      >next</Button>
+        sx={ 
+          { borderRadius: 28,
+            marginTop:3
+          }
+         }
+        className={classes.contButton}
+      >continue</Button>
     </div>
   )
 }
