@@ -1,7 +1,21 @@
 import MenuBar from '../../components/MenuBar/MenuBar'
 import styles from './leaderboard.css'
+import { useState, useEffect } from 'react'
+import { getHighScores } from '../../services/user';
 
 export default function Leaderboard() {
+  const [scoreLeaders, setScoreLeaders] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const getLeaderBoard = async () => {
+      const leaders = await getHighScores();
+      setScoreLeaders(leaders);
+      setIsLoading(false);
+    }
+    getLeaderBoard();
+  }, []);
+
   return (
     <>
       {/* <MenuBar /> */}

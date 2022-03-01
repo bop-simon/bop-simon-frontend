@@ -11,14 +11,14 @@ export const getAllUsers = async () => {
 
 //fetch by Id
 export const getUserById = async(id) => {
-    const res = await fetch(`https://bop-simon.herokuapp.com/api/v1/users/${id}`); 
+    const res = await fetch(`https://bop-simon.herokuapp.com/api/v1/users/${id}`);
     const userId = await res.json();
     return userId
 }
 
 //fetch by score
-export const getHighScores = async(id) => {
-    const res = await fetch(`https://bop-simon.herokuapp.com/api/v1/users/${leaderboard}`); 
+export const getHighScores = async() => {
+    const res = await fetch('https://bop-simon.herokuapp.com/api/v1/users/leaderboard');
     const userId = await res.json();
     return userId
 }
