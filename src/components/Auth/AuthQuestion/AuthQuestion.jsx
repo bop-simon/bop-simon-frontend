@@ -1,19 +1,11 @@
 import { Button } from '@mui/material'
-import React, { useState } from 'react'
 
-export default function AuthQuestion({ onSubmit, isSigningUp }) {
-
-  const [signUp, setSignUp] = useState('')
-
-  console.log("SIGN UP", signUp)
+export default function AuthQuestion({ onSubmit, nextStep }) {
 
   const handleChange = (e) => {
-    const { value } = e.target
-    setSignUp(value)
-    onSubmit("isSigningUp", e)
+    onSubmit(e)
+    nextStep(e)
   }
-
-
 
   return (
     <div>
@@ -22,11 +14,13 @@ export default function AuthQuestion({ onSubmit, isSigningUp }) {
         variant="outlined" 
         onClick={handleChange}
         value={true}
+        name='isSigningUp'
       >yes</Button>
       <Button 
         variant="outlined" 
         onClick={handleChange} 
         value={false}
+        name='isSigningUp'
       >no</Button>
     </div>
   )

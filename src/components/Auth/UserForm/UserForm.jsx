@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import AuthQuestion from '../AuthQuestion/AuthQuestion.jsx'
-import UInput from '../UInput/UInput.jsx'
+import Password from '../Password/Password.jsx'
+import Username from '../Username/Username.jsx'
 
 export default function UserForm() {
   const [formState, setFormState] = useState({
@@ -12,12 +13,13 @@ export default function UserForm() {
 
   let { step } = formState
 
-  console.log(formState)
+  console.log("FORM STATE", formState)
 
   function nextStep(e) {
     e.preventDefault()
     let { step } = formState
     setFormState({
+      ...formState,
       step: step + 1
     })
   }
@@ -30,38 +32,44 @@ export default function UserForm() {
     })
   }
 
-  const handleChange = async (input, e) => {
-    setFormState({ [input]: e.target.value })
-    nextStep(e)
+  const handleChange = async (e) => {
+    const { value, name } = e.target
+    setFormState({...formState, [name]: value})
   }
 
   if (step === 1) {
     return(
       <AuthQuestion
         onSubmit={handleChange}
-        isSigningUp={formState.isSigningUp}
+        nextStep={nextStep}
       />
     )
   }
 
   if (step === 2) {
     return(
-      <UInput
-        handleChange
+      <Username
+        onSubmit={handleChange}
+        nextStep={nextStep}
       />
     )
   }
 
-  // if (step = 3) {
-  //   return(
-  //     <Password />
-  //   )
-  // }
-
-  else {
-    return (
-      <p>no steps found</p>
+  if (step = 3) {
+    return(
+      <Password
+        onSubmit={handleChange}
+      />
     )
   }
 
+  if (step = 4) {
+    history.push('/home')
+  }
+
+  else {
+    return(
+      <p>No step found</p>
+    )
+  }
 }
