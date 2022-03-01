@@ -1,10 +1,9 @@
 import { Button } from '@mui/material'
 
-export default function AuthQuestion({ onSubmit, nextStep }) {
+export default function AuthQuestion({ onSubmit }) {
 
   const handleChange = (e) => {
     onSubmit(e)
-    nextStep(e)
   }
 
   return (
