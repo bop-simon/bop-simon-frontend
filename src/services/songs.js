@@ -1,22 +1,20 @@
-import { client, parseData } from './client';
+import request from "superagent";
 
 
-//create songs
-export async function createUser({ userId, notes }) {
-    const request = await client
-      .from('usersongs')
-      .insert({ user_id: userId, notes });
-    return parseData(request);
-  }
+export async function getAllUserSongs() {
+  const response = await request.get(`${process.env.PROD_URL}/usersongs`)
 
-//get songs by id
-export async function getSongById(id) {
-    const request = await client.from('usersongs').select().match({ id }).single();
-    return parseData(request);
+  return response.body; 
 }
 
-//delete user by id
-export async function deleteSongById(id) {
-    const request = await client.from('usersongs').delete().match({ id });
-    return parseData(request);
-  }
+export async function getUserSongsById(id) {
+  const response = await request.get(`${process.env.PROD_URL}/usersongs/${id}`)
+
+  return response.body;
+}
+
+export async function deleteUserSongs(id) {
+  const response = await request.delete(`${process.env.PROD_URL}/usersongs/${id}`)
+
+  return response.body;
+}

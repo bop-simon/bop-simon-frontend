@@ -15,8 +15,9 @@ export const fetchUserById = async(id) => {
 }
 
 //fetch by score
-export const fetchHighScores = async(id) => {
-    const res = await fetch(`https://bop-simon.herokuapp.com/api/v1/users/${leaderboard}`); 
+export const fetchUserByHighScore = async() => {
+    const res = await fetch(`https://bop-simon.herokuapp.com/api/v1/users/leaderboard`); 
     const userId = await res.json();
     return userId
-}
+  }
+  
