@@ -4,11 +4,14 @@ import { getUserById } from "../services/user";
 const UserContext = createContext()
 
 const UserProvider = ({children}) =>{
+    //this is the state
     const [user, setUser] = useState({});
-    //still needs work--
+    //current user is the getId function, which takes in an id
     const currentUser = getUserById(id)
-
-    setUser(currentUser);
+    //userId is-- if it is the getId function return the id else return empty object
+    const userId = currentUser ? { id: currentUser} : {}
+    //setUser to the userId
+    setUser(userId);
 
     return <UserContext.UserProvider value={{user, setUser}}>{children}</UserContext.UserProvider>
 
