@@ -1,37 +1,20 @@
 import { useContext, createContext, useState, useMemo } from "react";
-import { getClient, signUp, signIn, signOut } from "../services/auth";
+import { logIn } from "../services/auth";
 
 const AuthContext = createContext();
 
 const AuthProvider = ({children}) => {
+    //set the state
     const [auth, setAuth] = useState({})
+    //the currentAuth is set to login which takes in the username and the password
+    const currentAuth = logIn(username, password)
+    // if it is the login function return the username and password else return empty object
+    const authUser = currentAuth ? {username: currentAuth.username, password: currentAuth.password} : {}
+    setAuth(authUser);
 
-    const currentAuth = getClient()
-
-    //would we possibly need a turnery here? like, if it is not currentAuth then go back to the {}? 
-    //? {...currentAuth} : {}
-    setAuth(currentAuth);
-
-  async function signUpUser(username, password){
-      const newUser = await signUp(username, password);
-      setAuth(newUser);
-  }
-
-  async function signInUser(username, password){
-      const returningUser = await signIn(username, password);
-      setAuth(returningUser)
-  }
-
-  async function signOutUser(){
-      await signOut();
-      history.push('/home');
-  }
-
-//You may rely on useMemo as a performance optimization, not as a semantic guarantee
-  const operations = useMemo(() => ({ auth, signUpUser, signInUser, signOutUser}),[auth])
 
   return (
-      <AuthContext.AuthProvider value={operations}>
+      <AuthContext.AuthProvider value={{auth, setUser}}>
           {children}
       </AuthContext.AuthProvider>
   )
