@@ -1,26 +1,26 @@
-import { client } from './client';
+//Prod - https://bop-simon-prod.herokuapp.com/
+//Main - https://bop-simon.herokuapp.com/
 
-//get the client
-export function getClient() {
-    return client.auth.session()
-}
+import request from "superagent"
 
-//sign up the user
-export async function signUp(username, password){
-    const { user } = await client.auth.signUp({
-        username, password
-    })
-    return user;
-}
-
-//sign in the user
-export async function signIn(username, password){
-    const { user } = await client.auth.signIn({
-        username, password
-    })
-    return user
-}
-//sign out the user
+//sign up
+export async function signUp(username, password) {
+    const response = await request 
+      .post(`${process.env.PROD_URL}/users/sessions`)
+      .send({ username, password });
+    return response.body;
+  }
+  
+  //login
+  export async function logIn(username, password) {
+    const response = await request 
+      .post(`${process.env.PROD_URL}/users/sessions`)
+      .send({ 'username': username, 'password': password });
+    return response.body;
+  }
+//log out
 export async function signOut(){
-    return client.auth.signOut();
+   const response = await request 
+   .delete(`${process.env.PROD_URL}/users/sessions`)
+return response.body;
 }

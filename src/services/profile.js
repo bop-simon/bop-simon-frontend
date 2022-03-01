@@ -1,37 +1,31 @@
-import { client, parseData } from './client';
+import request from "superagent";
 
-//CRUD from backend for Profile
-//create a profile
-export async function createProfile({ userId, score, bio }) {
-    const request = await client
-      .from('profiles')
-      .insert({ user_id: userId, score, bio });
-    return parseData(request);
-  }
-//get all profile
-export async function getsProfile() {
-  const request = await client
-    .from('profiles')
-    .select()
-    .order('created_at', { ascending: false });
-  return parseData(request);
+export async function postProfile(id) {
+  const response = await request.post(`${process.env.PROD_URL}/profiles/${id}`)
+  .send(profiles)
+  return response.body; 
 }
-//get profile by id
+
+export async function getAllProfiles() {
+  const response = await request.get(`${process.env.PROD_URL}/profiles`)
+
+  return response.body; 
+}
+
 export async function getProfileById(id) {
-  const request = await client.from('profiles').select().match({ id }).single();
-  return parseData(request);
-}
-//update profile by id
-export async function updateUserById(id, { score, bio }) {
-  const request = await client
-    .from('profiles')
-    .update({ score, bio })
-    .match({ id });
-  return parseData(request);
+  const response = await request.get(`${process.env.PROD_URL}/profiles/${id}`)
+
+  return response.body;
 }
 
-//delete profile by id
-export async function deleteUserById(id) {
-  const request = await client.from('profiles').delete().match({ id });
-  return parseData(request);
+export async function deleteProfile(id) {
+  const response = await request.delete(`${process.env.PROD_URL}/profiles/${id}`)
+
+  return response.body;
+}
+
+export async function editsProfile(id, score, bio ) {
+  const response = await request.put(`${process.env.PROD_URL}/profiles/${id}`)
+  .send(score, bio)
+  return response.body;
 }

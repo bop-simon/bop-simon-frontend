@@ -1,36 +1,37 @@
-import { client, parseData } from './client';
+import request from "superagent";
 
-//create a user
-export async function createUser({ userId, username, password }) {
-    const request = await client
-      .from('users')
-      .insert({ user_id: userId, username, password });
-    return parseData(request);
-  }
-//get all users
-export async function getsUsers() {
-  const request = await client
-    .from('users')
-    .select()
-    .order('created_at', { ascending: false });
-  return parseData(request);
+export async function postUser(id) {
+  const response = await request.post(`${process.env.PROD_URL}/users/${id}`)
+  .send(users)
+
+  return response.body; 
 }
-//get user by id
+
+export async function getAllUsers() {
+  const response = await request.get(`${process.env.PROD_URL}/users`)
+
+  return response.body; 
+}
+
 export async function getUserById(id) {
-  const request = await client.from('users').select().match({ id }).single();
-  return parseData(request);
-}
-//update user by id
-export async function updateUserById(id, { username, password }) {
-  const request = await client
-    .from('users')
-    .update({ username, password })
-    .match({ id });
-  return parseData(request);
+  const response = await request.get(`${process.env.PROD_URL}/users/${id}`)
+
+  return response.body;
 }
 
-//delete user by id
-export async function deleteUserById(id) {
-  const request = await client.from('users').delete().match({ id });
-  return parseData(request);
+export async function deleteUser(id) {
+  const response = await request.delete(`${process.env.PROD_URL}/users/${id}`)
+
+  return response.body;
+}
+
+export async function editsUser(id, password) {
+  const response = await request.put(`${process.env.PROD_URL}/users/${id}`)
+  .send(password)
+  return response.body;
+
+export async function getByHighScore(){
+  const response = await request.get(`${process.env.PROD_URL}/users/leaderboard`)
+  return response.body
+}
 }
