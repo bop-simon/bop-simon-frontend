@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AuthQuestion from "../../components/Auth/AuthQuestion/AuthQuestion.jsx";
 import UserForm from "../../components/Auth/UserForm/UserForm.jsx";
+import styles from './auth.css'
 
 //we need to pass the username and password in the userform through the signup or login functions
 //maybe need a function called signupOrLogin that checks isSigningUp, and calls the correct backend util with the user form state
@@ -16,6 +17,8 @@ export default function Auth() {
 
   const handleSubmit = async () => {
     console.log("Form Data - handleSubmit", formData)
+    //will check to make sure the username, and password have enough characters
+    
   }
 
   const handleStateChange = (e) => {
@@ -30,7 +33,7 @@ export default function Auth() {
   }
 
   return (
-    <div>
+    <div className={styles.auth} >
       {
         answered ?
         <UserForm
