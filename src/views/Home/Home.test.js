@@ -3,51 +3,30 @@ import { screen, render } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import Home from './Home'
 
-// jest.mock(new AudioBuffer(), () => {
+// jest.mock('tone'), () => {
 //   return {
-//     AudioBuffer: jest.fn().mockImplementation(() => {
-//       return { toDestination: jest.fn() }
-//     })
-//   }
-// })
-
-// const limiter = new Limiter.toDestination()
-
-// const synth = new Synth(synthSounds).toDestination()
-
-// jest.mock('tone', () => {
-//   return {
-//     Synth: jest.fn(),
 //     Limiter: jest.fn(),
-//     synthSounds: jest.fn().mockImplementation(() => {
-//       return { toDestination: jest.fn() }
-//     })
+//     AudioBuffer: jest.fn(),
+//     Synth: jest.fn()
+//     }
 //   }
-// })
-// jest.mock(new Synth(synthSounds), () => {
-//   return {
-//     Limiter: jest.fn().mockImplementation(() => {
-//       return { toDestination: jest.fn() }
-//     })
-//   }
-// })
 
-// jest.mock('tone', () => {
-//   return {
-//     Synth: jest.fn(),
-//     Limiter: jest.fn(),
-//     AudioBuffer: jest.fn()
-//   }
-// })
+jest.spyOn(window.HTMLMediaElement.prototype, 'load').mockImplementation(() => {})
 
-jest.mock(Home)
-
+jest.spyOn(window.HTMLMediaElement.prototype, 'play').mockImplementation(() => {})
+jest.mock('tone', () => {
+  return {
+    Synth: jest.fn(), 
+    Limiter: jest.fn(),
+    AudioBuffer: jest.fn()
+  }
+})
+ 
 it('properly renders the home view', () => {
   const container = render(
     <MemoryRouter>
       <Home />
     </MemoryRouter>
   )
-
   expect(container).toMatchSnapshot()
 })
