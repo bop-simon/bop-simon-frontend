@@ -1,9 +1,4 @@
-//create a client
-export const client = async () => {
-const res = await fetch('https://bop-simon.herokuapp.com/api/v1/users/sessions')
-const clients = await res.json();
-return clients
-}
+import { client } from './client';
 
 //get the client
 export function getClient() {
@@ -11,17 +6,17 @@ export function getClient() {
 }
 
 //sign up the user
-export async function signUp(email, password){
+export async function signUp(username, password){
     const { user } = await client.auth.signUp({
-        email, password
+        username, password
     })
     return user;
 }
 
 //sign in the user
-export async function signIn(email, password){
+export async function signIn(username, password){
     const { user } = await client.auth.signIn({
-        email, password
+        username, password
     })
     return user
 }

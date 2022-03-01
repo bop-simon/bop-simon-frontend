@@ -12,13 +12,13 @@ const AuthProvider = ({children}) => {
     //? {...currentAuth} : {}
     setAuth(currentAuth);
 
-  async function signUpUser(email, password){
-      const newUser = await signUp(email, password);
+  async function signUpUser(username, password){
+      const newUser = await signUp(username, password);
       setAuth(newUser);
   }
 
-  async function signInUser(email, password){
-      const returningUser = await signIn(email, password);
+  async function signInUser(username, password){
+      const returningUser = await signIn(username, password);
       setAuth(returningUser)
   }
 
