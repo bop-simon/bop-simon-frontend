@@ -23,5 +23,6 @@
 
 .simon {
   height: 15em;
-  border: 3px solid black;
+  /* border: 3px solid black; */
+  padding: 2vw;
 }
