@@ -64,16 +64,6 @@ export default function HamburgerMenu() {
             borderRight: 2
           }}
         >
-          Learn
-        </MenuItem>
-        <MenuItem
-          onClick={handleClose}
-          sx={{
-            borderBottom: 2,
-            borderLeft: 2,
-            borderRight: 2
-          }}
-        >
           <Link to="/leaderboard">Leaderboard</Link>
         </MenuItem>
         <MenuItem

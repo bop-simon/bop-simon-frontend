@@ -9,6 +9,24 @@ const theme = createTheme({
     secondary: {
       main: '#a51fff',
     },
+    pink: {
+      main: '#ff5c8a',
+    },
+    purple: {
+      main: '#A51FFF',
+    },
+    yellow: {
+      main: '#FCD116',
+    },
+    jet: {
+      primary: '#333333',
+    },
+    green: {
+      main: '#3BC06F',
+    },
+    tuscany: {
+      main: '#C99DA3',
+    },
     text: {
       primary: '#333333',
     },
