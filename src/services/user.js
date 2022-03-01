@@ -8,9 +8,7 @@ export async function postUser(id) {
 }
 
 export async function getAllUsers() {
-  const response = await request
-  .get(`${process.env.PROD_URL}/users`)
-  .order('score', {ascending:true})
+  const response = await request.get(`${process.env.PROD_URL}/users`)
   return response.body; 
 }
 
@@ -33,7 +31,9 @@ export async function editsUser(id, password) {
 }
 
 export async function getByHighScore(){
-  const response = await request.get(`${process.env.PROD_URL}/users/leaderboard`)
+  const response = await request
+  .get(`${process.env.PROD_URL}/users/leaderboard`)
+  .order('score', {ascending:true})
   return response.body
 }
 
