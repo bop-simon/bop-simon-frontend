@@ -8,8 +8,9 @@ export async function postUser(id) {
 }
 
 export async function getAllUsers() {
-  const response = await request.get(`${process.env.PROD_URL}/users`)
-
+  const response = await request
+  .get(`${process.env.PROD_URL}/users`)
+  .order('score', {ascending:true})
   return response.body; 
 }
 
