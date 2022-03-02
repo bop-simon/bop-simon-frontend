@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import MenuBar from '../../components/MenuBar/MenuBar'
 import { useUser } from '../../context/userContext'
 import styles from './profile.css'
 import circle from '../../assets/CircleBB2.png'
@@ -8,16 +9,14 @@ import { editsProfile, getProfileById } from '../../services/profile'
 import { useEffect } from 'react'
 import { IconButton, Avatar, TextField } from '@mui/material'
 import { Box } from '@mui/system'
+import UserMenu from '../../components/MenuBar/UserMenu'
 
 
 export default function About() {
 //  const [password, setPassword]=useState('')
 //  const {user, setUser}= useUser() 
 const [changeAvatar, setChangeAvatar]=useState(false)
-const [currentAvatar, setCurrentAvatar]=useState(hex)
-
-
-
+const [currentAvatar, setCurrentAvatar]=useState(circle)
 
 
 //  useEffect(()=>{
@@ -58,15 +57,20 @@ function handleAvatarChange(name){
  
   return (
     <>
+      <MenuBar />
+      <section className={styles.leaderCard}></section>
+    {/* <h1>Welcome ${user}</h1> */}
+    <h1> User</h1>
+    <p>Feel free to change your profile icon by clicking on your current picture</p>
+
     <Box
     style={{
       width:"500px",
       height:"300px",
-      border:"1px solid black",
       display:"flex",
       alignItems:"center",
       justifyContent:"center",
-      position:"relative"
+      position:"relative",
     }}>
  <IconButton 
  aria-label="change"
@@ -140,6 +144,10 @@ onClick={() => {
  />
 </IconButton>}
     </Box>
+    {/* <h2>{user.score}  </h2> */}
+   <h2>High Score</h2> 
+   <h2>Player Since</h2>
+   <h3> password change</h3>
     {/* <TextField 
       onChange={handlePasswordChange}
       label="password" 

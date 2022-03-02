@@ -1,17 +1,12 @@
-import { useContext, createContext, useState } from "react";
-import { getUserById } from "../services/user";
+import { useContext, useEffect, useMemo, createContext, useState } from "react";
+import { getCurrentUser} from "../services/user";
 
 const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
     //this is the state
     const [user, setUser] = useState({});
-    //current user is the getId function, which takes in an id
-    const currentUser = getUserById(id)
-    //userId is-- if it is the getId function return the id else return empty object
-    const userId = currentUser ? { id: currentUser} : {}
-    //setUser to the userId
-    setUser(userId);
+    console.log('USER IN CONTEXT', user)
 
     return ( 
     <UserContext.UserProvider value={{user, setUser}}>{children}</UserContext.UserProvider>
