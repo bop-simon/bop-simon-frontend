@@ -21,6 +21,7 @@ export default function UserForm({ handleSubmit, handleChange, formState }) {
         value={formState.password}
         onChange={handleChange}
         name="password" 
+        type="password"
         label="password" 
         color="purple" 
         focused />
