@@ -18,6 +18,14 @@ export async function getUserById(id) {
   return response.body;
 }
 
+export async function getCurrentUser() {
+  const response = await request.get(`${process.env.PROD_URL}/users/currentuser`).withCredentials()
+
+  console.log("current user response", response.body)
+
+  return response.body
+}
+
 export async function deleteUser(id) {
   const response = await request.delete(`${process.env.PROD_URL}/users/${id}`)
 

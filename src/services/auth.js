@@ -12,7 +12,8 @@ export async function signUp(username, password) {
   export async function logIn(username, password) {
     const response = await request
       .post(`${process.env.PROD_URL}/users/sessions`)
-      .send({ username, password });
+      .send({ username, password })
+      .withCredentials()
 
     console.log('RESPONSE', response.body)
     return response.body;
