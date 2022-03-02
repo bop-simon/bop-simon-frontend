@@ -13,6 +13,7 @@ export default function Home() {
   }
   return (
     <main className={styles.home}>
+      <MenuBar />
       <FormGroup sx={{ display: 'block' }}>
         <FormControlLabel
           control={
