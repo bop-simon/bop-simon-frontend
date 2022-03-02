@@ -3,7 +3,7 @@ import { logIn } from "../services/auth";
 
 const AuthContext = createContext();
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
     //set the state
     const [auth, setAuth] = useState({})
     //the currentAuth is set to login which takes in the username and the password
@@ -14,7 +14,7 @@ const AuthProvider = ({children}) => {
 
 
   return (
-      <AuthContext.AuthProvider value={{auth, setUser}}>
+      <AuthContext.AuthProvider value={{auth, setAuth}}>
           {children}
       </AuthContext.AuthProvider>
   )
@@ -26,4 +26,4 @@ const useAuth = () =>{
     }
     return context
 }
-export {AuthProvider, useAuth}
+export { AuthContext, AuthProvider, useAuth}

@@ -1,9 +1,9 @@
 import { useContext, createContext, useState } from "react";
 import { getUserById } from "../services/user";
 
-const UserContext = createContext()
+const UserContext = createContext();
 
-const UserProvider = ({children}) =>{
+const UserProvider = ({ children }) => {
     //this is the state
     const [user, setUser] = useState({});
     //current user is the getId function, which takes in an id
@@ -13,8 +13,9 @@ const UserProvider = ({children}) =>{
     //setUser to the userId
     setUser(userId);
 
-    return <UserContext.UserProvider value={{user, setUser}}>{children}</UserContext.UserProvider>
-
+    return ( 
+    <UserContext.UserProvider value={{user, setUser}}>{children}</UserContext.UserProvider>
+    )
 }
 const useUser = () =>{
     const context = useContext(UserContext)
@@ -23,5 +24,4 @@ const useUser = () =>{
     }
     return context
 }
-
-export {UserProvider, useUser}
+export { UserContext, UserProvider, useUser }
