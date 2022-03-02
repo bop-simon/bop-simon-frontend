@@ -1,7 +1,39 @@
-# react-template
+# Bop-Simon
 
-A starter template for React projects at Alchemy Code Lab. We'll be using this in the "Advanced React" portion of the program.
+### Taylor Callan Williams
 
-## Getting Started
+[LinkedIn](https://www.linkedin.com/in/taylor-c-williams/)
+[GitHub](https://github.com/taylor-c-williams)
 
-Click "Use this template" to create a new repo with your user as the owner. Then clone down the newly created repo and get hacking!
+### Katie Schrattenholzer
+
+[LinkedIn](https://www.linkedin.com/in/k-schrattenholzer/)
+[GitHub](https://github.com/k-schrattenholzer)
+
+### Julius Franklin
+
+[LinkedIn](https://www.linkedin.com/in/juliusfranklin88/)
+[GitHub](https://github.com/coding-neophyte)
+
+### Julius Franklin
+
+[LinkedIn](https://www.linkedin.com/in/emily-sarani/)
+[GitHub](https://github.com/EmilyDSarani)
+
+<br>
+<br>
+
+### This app allows users to play a fun game of musical simon. 
+
+<br>
+
+### Libraries, Frameworks, and Packages used:
+
+1. React
+2. React-Router-Dom
+3. Netlify
+4. Supabase
+5. Heroku
+
+<br>
+[Backend Repo:](https://github.com/bop-simon/bop-simon-backend)
