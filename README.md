@@ -15,7 +15,7 @@
 [LinkedIn](https://www.linkedin.com/in/juliusfranklin88/)
 [GitHub](https://github.com/coding-neophyte)
 
-### Julius Franklin
+### Emily D. Sarani
 
 [LinkedIn](https://www.linkedin.com/in/emily-sarani/)
 [GitHub](https://github.com/EmilyDSarani)
