@@ -1,24 +1,63 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import AuthQuestion from "../../components/Auth/AuthQuestion/AuthQuestion.jsx";
 import UserForm from "../../components/Auth/UserForm/UserForm.jsx";
+import { logIn, signUp } from "../../services/auth.js";
 import styles from './auth.css'
 
-//we need to pass the username and password in the userform through the signup or login functions
-//maybe need a function called signupOrLogin that checks isSigningUp, and calls the correct backend util with the user form state
-
 export default function Auth() {
+  const navigate = useNavigate()
 
   const [answered, setAnswered] = useState(false)
+  const [formError, setFormError] = useState('')
+  const [isSigningUp, setIsSigningUp] = useState(true)
   const [formData, setFormData] = useState({
-    isSigningUp: false,
     username: '',
     password: ''
   })
 
-  const handleSubmit = async () => {
+  console.log('is signing up', isSigningUp)
+
+  const handleSignUp = async () => {
     console.log("Form Data - handleSubmit", formData)
-    //will check to make sure the username, and password have enough characters
-    
+    const { username, password } = formData
+
+    if(username.length < 2) {
+      setFormError('please enter a username greater than 1 character')
+    }
+    if(password.length < 8) {
+      setFormError('please enter a password with more than 8 characters.')
+    }
+    try {
+        console.log('trying to sign up')
+        await signUp(username, password)
+        await logIn(username, password)
+        console.log('sign up and login successful')
+        navigate('/home')
+      } catch (error) {
+        setFormError(error)
+      }
+    } 
+  
+  const handleLogin = async () => {
+    console.log("Form Data - handleSubmit", formData)
+    const { username, password } = formData
+
+    if(username.length < 2) {
+      setFormError('please enter a username greater than 1 character')
+    }
+    if(password.length < 8) {
+      setFormError('please enter a password with more than 8 characters.')
+    }
+
+      try {
+        console.log('trying to login')
+        await logIn(username, password)
+        console.log('login successful')
+        navigate('/home')
+      } catch (error) {
+        setFormError(error)
+      }
   }
 
   const handleStateChange = (e) => {
@@ -26,10 +65,9 @@ export default function Auth() {
     setFormData({...formData, [name]: value})
   }
 
-  const handleAuthQuestion = (e) => {
+  const toggleSignUp = () => {
     setAnswered(true)
-    const { value, name } = e.target
-    setFormData({...formData, [name]: value})
+    setIsSigningUp(true)
   }
 
   return (
@@ -38,13 +76,14 @@ export default function Auth() {
         answered ?
         <UserForm
           handleChange={handleStateChange}
-          handleSubmit={handleSubmit}
+          handleSubmit={ isSigningUp ? handleSignUp : handleLogin }
           formState={formData}
         /> :
         <AuthQuestion
-          onSubmit={handleAuthQuestion}
+          handleChange={toggleSignUp}
         />
       }
+      { formError ? <p>{formError}</p> : ''}
     </div>
   )
 }
