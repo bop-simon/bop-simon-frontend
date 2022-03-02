@@ -15,7 +15,7 @@ const synthSounds = {
   }
 }
 const limiter = new Tone.Limiter(-2)
-const synth = new Tone.Synth(synthSounds).chain(limiter)
+const synth = new Tone.Synth(synthSounds).chain(limiter).toDestination()
 
 function playNote(note) {
   const element = document.getElementById(note)
@@ -28,7 +28,6 @@ function playNote(note) {
     element.style.borderRadius = '0px'
   }, 1000)
 }
-// CPU turn: songArray.push >> nowPlayingArray >> loop thru nowPlayingArray, for each note: playNote(note)
 
 export default function Game() {
   return (
