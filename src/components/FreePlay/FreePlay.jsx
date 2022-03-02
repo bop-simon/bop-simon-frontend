@@ -42,13 +42,13 @@ export default function Game() {
 
   const startRecording = () => {
     setIsRecording(true);
-    //push notes to notes array
+
 
   }
 
   const stopRecording = async () => {
     setIsRecording(false);
-    //send notes array to backend
+
     setFavSong(notesArray);
     await postUserSong(notesArray);
 
