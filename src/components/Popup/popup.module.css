@@ -1,0 +1,12 @@
+.modal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 30vh;
+  left: 0;
+  margin: auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
