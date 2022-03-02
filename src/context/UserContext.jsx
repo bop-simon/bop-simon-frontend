@@ -1,16 +1,28 @@
 import { useContext, useEffect, useMemo, createContext, useState } from "react";
 import { getCurrentUser} from "../services/user";
 
-const UserContext = createContext();
+//this is a small change
 
-const UserProvider = ({ children }) => {
-    //this is the state
+const UserContext = createContext()
+
+const UserProvider = ({children}) =>{
     const [user, setUser] = useState({});
     console.log('USER IN CONTEXT', user)
 
-    return ( 
-    <UserContext.UserProvider value={{user, setUser}}>{children}</UserContext.UserProvider>
-    )
+    useEffect(() => {
+      const fetchCurrentUser = async() => {
+        const currentUser = await getCurrentUser()
+        currentUser.id ?
+        setUser(currentUser) :
+        setUser({})
+      } 
+      fetchCurrentUser()
+    }, [])
+
+    const value = useMemo(() => ({ user, setUser }), [user]);
+
+    return <UserContext.Provider value={value}>{children}</UserContext.Provider>
+
 }
 const useUser = () =>{
     const context = useContext(UserContext)
@@ -19,4 +31,5 @@ const useUser = () =>{
     }
     return context
 }
-export { UserContext, UserProvider, useUser }
+
+export {UserContext, UserProvider, useUser}
