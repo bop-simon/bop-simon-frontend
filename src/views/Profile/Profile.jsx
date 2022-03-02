@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import MenuBar from '../../components/MenuBar/MenuBar'
-import { useUser } from '../../context/userContext'
+// import { useUser } from '../../context/UserContext'
 import styles from './profile.css'
 import circle from '../../assets/CircleBB2.png'
 import triangle from '../../assets/TriangleBB.png'
