@@ -16,7 +16,6 @@ const synthSounds = {
 }
 const limiter = new Tone.Limiter(-2)
 const synth = new Tone.Synth(synthSounds).chain(limiter)
-console.log(synth, '============================')
 
 function playNote(note) {
   const element = document.getElementById(note)
@@ -47,7 +46,7 @@ export default function Game() {
             A = Bop Simon Green
             B = Bop Simon Blue 
             */}
-            <div onClick={() => playNote('c2')} id="c2"></div>
+            <div onClick={() => playNote('c2')} id="c2" aria-label="c2"></div>
             <div onClick={() => playNote('d2')} id="d2"></div>
             <div onClick={() => playNote('e2')} id="e2"></div>
             <div onClick={() => playNote('f2')} id="f2"></div>

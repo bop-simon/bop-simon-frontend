@@ -1,10 +1,10 @@
 import AccountCircle from '@mui/icons-material/AccountCircle'
 import { IconButton, MenuItem, Menu } from '@mui/material'
 import { Link } from 'react-router-dom'
-
+import { useState } from 'react'
 export default function UserMenu() {
-  const [anchorEl, setAnchorEl] = React.useState(null)
-  const [auth, setAuth] = React.useState(true)
+  const [anchorEl, setAnchorEl] = useState(null)
+  const [auth, setAuth] = useState(true)
 
   const handleChange = (event) => {
     setAuth(event.target.checked)

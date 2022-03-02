@@ -6,10 +6,6 @@
   width: 85vw;
 }
 
-img {
-  border-radius: 200px;
-}
-
 .main {
   display: flex;
   --s: 100px; /* size  */

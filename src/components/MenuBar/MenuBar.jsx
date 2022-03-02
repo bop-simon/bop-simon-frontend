@@ -1,4 +1,5 @@
 import styles from '../../App.css'
+import { useState } from 'react'
 import UserMenu from './UserMenu'
 import HamburgerMenu from './HamburgerMenu'
 import {
@@ -12,8 +13,8 @@ import {
 } from '@mui/material'
 
 export default function MenuBar() {
-  const [anchorEl, setAnchorEl] = React.useState(null)
-  const [auth, setAuth] = React.useState(true)
+  const [anchorEl, setAnchorEl] = useState(null)
+  const [auth, setAuth] = useState(true)
 
   const handleChange = (event) => {
     setAuth(event.target.checked)
