@@ -3,6 +3,8 @@ import { getCurrentUser} from "../services/user";
 
 const UserContext = createContext()
 
+//this is a small change
+
 const UserProvider = ({children}) =>{
     const [user, setUser] = useState({});
     const [loading, setLoading] = useState(true)
