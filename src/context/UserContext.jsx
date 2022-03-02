@@ -1,6 +1,8 @@
 import { useContext, useEffect, useMemo, createContext, useState } from "react";
 import { getCurrentUser} from "../services/user";
 
+//this is a small change
+
 const UserContext = createContext()
 
 const UserProvider = ({children}) =>{
