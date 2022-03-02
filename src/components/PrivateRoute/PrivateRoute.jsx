@@ -1,25 +1,20 @@
-import { Redirect, Route } from 'react-router-dom';
+import { Navigate, Route } from 'react-router-dom';
 import { useUser } from '../../context/UserContext.jsx';
 
 // A wrapper for <Route> that redirects to the login
 // screen if you're not yet authenticated.
-export default function PrivateRoute({ children, ...rest }) {
+export default function PrivateRoute({ children }) {
 
   const { user } = useUser();
   console.log(user);
 
   return ( 
-    <Route 
-      {...rest}
-      render={({ location }) => 
-        user ? 
-        children : 
-        <Redirect 
-          to={{
-            pathname: '/auth', 
-            state: { from: location }
-          }}
-        />
-      }
-      />);
+    <>
+      {user.username ? 
+      children : 
+      <Navigate 
+        to='/auth'/>}
+    </>
+      
+);
 }

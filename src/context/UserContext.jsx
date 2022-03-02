@@ -5,19 +5,25 @@ const UserContext = createContext()
 
 const UserProvider = ({children}) =>{
     const [user, setUser] = useState({});
+    const [loading, setLoading] = useState(true)
     console.log('USER IN CONTEXT', user)
 
     useEffect(() => {
       const fetchCurrentUser = async() => {
+        console.log('hey hi helooooooo')
         const currentUser = await getCurrentUser()
-        currentUser.id ?
-        setUser(currentUser) :
-        setUser({})
+        console.log("current user", currentUser)
+        if (currentUser.username) {
+          setUser(currentUser)
+        } else {
+          setUser({})
+        }
+        setLoading(false)
       } 
       fetchCurrentUser()
     }, [])
 
-    const value = useMemo(() => ({ user, setUser }), [user]);
+    const value = useMemo(() => ({ user, setUser, loading }), [user]);
 
     return <UserContext.Provider value={value}>{children}</UserContext.Provider>
 
