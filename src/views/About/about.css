@@ -1,6 +1,6 @@
 .simon {
-  height: 15em;
-  border: 3px solid black;
+  height: 12em;
+  border: 3px;
 }
 
 .aboutCard {
@@ -23,3 +23,13 @@
 .aboutHeading {
   color: #fcd116;
 }
+.team{
+  display: flex;
+  flex-direction: row;
+  gap: 17px;
+  font-size: small;
+  font-family: var(--monospace);
+  align-items: center;
+  line-height: normal;
+}
+
