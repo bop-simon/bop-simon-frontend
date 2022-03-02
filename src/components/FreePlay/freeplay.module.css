@@ -6,7 +6,7 @@
   width: 85vw;
 }
 
-img {
+.gameMain > img {
   border-radius: 200px;
 }
 

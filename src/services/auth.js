@@ -3,7 +3,7 @@ import request from "superagent"
 //sign up
 export async function signUp(username, password) {
     const response = await request 
-      .post(`${process.env.PROD_URL}/users/sessions`)
+      .post(`${process.env.PROD_URL}/users/signup`)
       .send({ username, password });
     return response.body;
   }
@@ -12,7 +12,9 @@ export async function signUp(username, password) {
   export async function logIn(username, password) {
     const response = await request 
       .post(`${process.env.PROD_URL}/users/sessions`)
-      .send({ 'username': username, 'password': password });
+      .send({ username, password });
+
+    console.log('RESPONSE', response.body)
     return response.body;
   }
 //log out
