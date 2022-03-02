@@ -1,5 +1,523 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`properly renders the FreePlay component 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <section
+        class="gameMain"
+      >
+        <div
+          class="App"
+        >
+          <div
+            class="main"
+          >
+            <p>
+              This is the Free Play Board
+            </p>
+            <div
+              class="container"
+            >
+              <div
+                id="c2"
+              />
+              <div
+                id="d2"
+              />
+              <div
+                id="e2"
+              />
+              <div
+                id="f2"
+              />
+              <div
+                id="g2"
+              />
+              <div
+                id="a2"
+              />
+              <div
+                id="b2"
+              />
+              <div
+                aria-label="c3"
+                id="c3"
+              />
+              <div
+                id="d3"
+              />
+              <div
+                id="e3"
+              />
+              <div
+                id="f3"
+              />
+              <div
+                id="g3"
+              />
+              <div
+                id="a3"
+              />
+              <div
+                id="b3"
+              />
+              <div
+                id="c4"
+              />
+              <div
+                id="d4"
+              />
+              <div
+                id="e4"
+              />
+              <div
+                id="f4"
+              />
+              <div
+                id="g4"
+              />
+              <div
+                id="a4"
+              />
+              <div
+                id="b4"
+              />
+              <div
+                id="c5"
+              />
+              <div
+                id="d5"
+              />
+              <div
+                id="e5"
+              />
+              <div
+                id="f5"
+              />
+              <div
+                id="g5"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <section
+      class="gameMain"
+    >
+      <div
+        class="App"
+      >
+        <div
+          class="main"
+        >
+          <p>
+            This is the Free Play Board
+          </p>
+          <div
+            class="container"
+          >
+            <div
+              id="c2"
+            />
+            <div
+              id="d2"
+            />
+            <div
+              id="e2"
+            />
+            <div
+              id="f2"
+            />
+            <div
+              id="g2"
+            />
+            <div
+              id="a2"
+            />
+            <div
+              id="b2"
+            />
+            <div
+              aria-label="c3"
+              id="c3"
+            />
+            <div
+              id="d3"
+            />
+            <div
+              id="e3"
+            />
+            <div
+              id="f3"
+            />
+            <div
+              id="g3"
+            />
+            <div
+              id="a3"
+            />
+            <div
+              id="b3"
+            />
+            <div
+              id="c4"
+            />
+            <div
+              id="d4"
+            />
+            <div
+              id="e4"
+            />
+            <div
+              id="f4"
+            />
+            <div
+              id="g4"
+            />
+            <div
+              id="a4"
+            />
+            <div
+              id="b4"
+            />
+            <div
+              id="c5"
+            />
+            <div
+              id="d5"
+            />
+            <div
+              id="e5"
+            />
+            <div
+              id="f5"
+            />
+            <div
+              id="g5"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`properly renders the Game component 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <section
+        class="gameMain"
+      >
+        <div
+          class="App"
+        >
+          <div
+            class="main"
+          >
+            <p>
+              This is the Game Play Board
+            </p>
+            <div
+              class="container"
+            >
+              <div
+                aria-label="c2"
+                id="c2"
+              />
+              <div
+                id="d2"
+              />
+              <div
+                id="e2"
+              />
+              <div
+                id="f2"
+              />
+              <div
+                id="g2"
+              />
+              <div
+                id="a2"
+              />
+              <div
+                id="b2"
+              />
+              <div
+                id="c3"
+              />
+              <div
+                id="d3"
+              />
+              <div
+                id="e3"
+              />
+              <div
+                id="f3"
+              />
+              <div
+                id="g3"
+              />
+              <div
+                id="a3"
+              />
+              <div
+                id="b3"
+              />
+              <div
+                id="c4"
+              />
+              <div
+                id="d4"
+              />
+              <div
+                id="e4"
+              />
+              <div
+                id="f4"
+              />
+              <div
+                id="g4"
+              />
+              <div
+                id="a4"
+              />
+              <div
+                id="b4"
+              />
+              <div
+                id="c5"
+              />
+              <div
+                id="d5"
+              />
+              <div
+                id="e5"
+              />
+              <div
+                id="f5"
+              />
+              <div
+                id="g5"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <section
+      class="gameMain"
+    >
+      <div
+        class="App"
+      >
+        <div
+          class="main"
+        >
+          <p>
+            This is the Game Play Board
+          </p>
+          <div
+            class="container"
+          >
+            <div
+              aria-label="c2"
+              id="c2"
+            />
+            <div
+              id="d2"
+            />
+            <div
+              id="e2"
+            />
+            <div
+              id="f2"
+            />
+            <div
+              id="g2"
+            />
+            <div
+              id="a2"
+            />
+            <div
+              id="b2"
+            />
+            <div
+              id="c3"
+            />
+            <div
+              id="d3"
+            />
+            <div
+              id="e3"
+            />
+            <div
+              id="f3"
+            />
+            <div
+              id="g3"
+            />
+            <div
+              id="a3"
+            />
+            <div
+              id="b3"
+            />
+            <div
+              id="c4"
+            />
+            <div
+              id="d4"
+            />
+            <div
+              id="e4"
+            />
+            <div
+              id="f4"
+            />
+            <div
+              id="g4"
+            />
+            <div
+              id="a4"
+            />
+            <div
+              id="b4"
+            />
+            <div
+              id="c5"
+            />
+            <div
+              id="d5"
+            />
+            <div
+              id="e5"
+            />
+            <div
+              id="f5"
+            />
+            <div
+              id="g5"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
 exports[`properly renders the home view 1`] = `
 Object {
   "asFragment": [Function],

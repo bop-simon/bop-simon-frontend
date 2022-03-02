@@ -27,7 +27,7 @@ function playNote(note) {
   }, 1000)
 }
 
-export default function Game() {
+export default function FreePlay() {
   return (
     <section className={styles.gameMain}>
       <div className={styles.App}>
@@ -50,7 +50,7 @@ export default function Game() {
             <div onClick={() => playNote('g2')} id="g2"></div>
             <div onClick={() => playNote('a2')} id="a2"></div>
             <div onClick={() => playNote('b2')} id="b2"></div>
-            <div onClick={() => playNote('c3')} id="c3"></div>
+            <div onClick={() => playNote('c3')} id="c3" aria-label="c3"></div>
             <div onClick={() => playNote('d3')} id="d3"></div>
             <div onClick={() => playNote('e3')} id="e3"></div>
             <div onClick={() => playNote('f3')} id="f3"></div>
