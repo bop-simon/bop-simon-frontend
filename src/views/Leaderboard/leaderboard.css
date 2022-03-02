@@ -1,0 +1,14 @@
+.leaderCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fcd116;
+  border-radius: 1vw;
+  border: 2px solid black;
+  font-family: 'IBM Plex Mono';
+  font-weight: 600;
+  font-size: 1.25em;
+  letter-spacing: 0.1em;
+  padding: 2vw;
+  padding-top: 0;
+}

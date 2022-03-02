@@ -1,0 +1,93 @@
+.gameMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 85vw;
+}
+
+.gameMain > img {
+  border-radius: 200px;
+}
+
+.main {
+  display: flex;
+  --s: 100px; /* size  */
+  --m: 4px; /* margin */
+  --f: calc(1.732 * var(--s) + 4 * var(--m) - 1px);
+}
+
+.container {
+  font-size: 0; /*disable white space between inline block element */
+  padding: 0;
+}
+
+.container div {
+  display: flex;
+  flex-wrap: wrap;
+  width: var(--s);
+  margin: var(--m);
+  height: calc(var(--s) * 1.1547);
+  display: inline-block;
+  font-size: initial;
+  clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+  /* background: #9e6a91; */
+  background: #ff5c8a;
+  margin-bottom: calc(var(--m) - var(--s) * 0.2885);
+  transition: all 0.2s ease-in-out;
+}
+
+.container div:hover {
+  transform: scale(1.05);
+}
+
+.container div:nth-child(7n + 1) {
+  background: #ff5c8a;
+}
+
+.container div:nth-child(7n + 2) {
+  background: #fcd116;
+}
+
+.container div:nth-child(7n + 3) {
+  background: #333;
+}
+
+.container div:nth-child(7n + 4) {
+  background: #a51fff;
+}
+
+.container div:nth-child(7n + 5) {
+  background: #c99da3;
+}
+
+.container div:nth-child(7n + 6) {
+  background: #3bc06f;
+}
+
+.container div:nth-child(7n + 7) {
+  background: #009fb7;
+}
+
+.container::before {
+  content: '';
+  width: calc(var(--s) / 2 + var(--m));
+  float: left;
+  height: 120%;
+  shape-outside: repeating-linear-gradient(
+    #0000 0 calc(var(--f) - 3px),
+    #000 0 var(--f)
+  );
+}
+
+.activeKey {
+  background-color: black;
+}
+
+.c4Hex {
+  background-color: yellow;
+}
+
+button:active {
+  background-color: aqua;
+}

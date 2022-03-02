@@ -1,0 +1,13 @@
+.userForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userForm * {
+  margin-top: 3vw;
+}
+
+.userForm button {
+  margin-top: 3vw;
+}

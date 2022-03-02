@@ -1,3 +1,4 @@
+
 # Bop-Simon
 
 ### Taylor Callan Williams
@@ -37,3 +38,7 @@
 
 <br>
 [Backend Repo:](https://github.com/bop-simon/bop-simon-backend)
+
+Icons from Flaticon.com
+Material UI
+
