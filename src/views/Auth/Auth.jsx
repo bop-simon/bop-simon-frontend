@@ -67,7 +67,7 @@ export default function Auth() {
 
   const toggleSignUp = () => {
     setAnswered(true)
-    setIsSigningUp(!isSigningUp)
+    setIsSigningUp(true)
   }
 
   return (
