@@ -2,11 +2,13 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import AuthQuestion from "../../components/Auth/AuthQuestion/AuthQuestion.jsx";
 import UserForm from "../../components/Auth/UserForm/UserForm.jsx";
+import { useUser } from "../../context/UserContext.jsx";
 import { logIn, signUp } from "../../services/auth.js";
 import styles from './auth.css'
 
 export default function Auth() {
   const navigate = useNavigate()
+  const { setUser } = useUser();
 
   const [answered, setAnswered] = useState(false)
   const [formError, setFormError] = useState('')
@@ -31,7 +33,8 @@ export default function Auth() {
     try {
         console.log('trying to sign up')
         await signUp(username, password)
-        await logIn(username, password)
+        let user = await logIn(username, password)
+        setUser(user)
         console.log('sign up and login successful')
         navigate('/home')
       } catch (error) {
@@ -52,7 +55,8 @@ export default function Auth() {
 
       try {
         console.log('trying to login')
-        await logIn(username, password)
+        const user = await logIn(username, password)
+        setUser(user)
         console.log('login successful')
         navigate('/home')
       } catch (error) {
@@ -65,9 +69,10 @@ export default function Auth() {
     setFormData({...formData, [name]: value})
   }
 
-  const toggleSignUp = () => {
+  const toggleSignUp = (e) => {
+    console.log(e.target.value)
     setAnswered(true)
-    setIsSigningUp(true)
+    setIsSigningUp(e.target.value)
   }
 
   return (
@@ -76,7 +81,7 @@ export default function Auth() {
         answered ?
         <UserForm
           handleChange={handleStateChange}
-          handleSubmit={ isSigningUp ? handleSignUp : handleLogin }
+          handleSubmit={ isSigningUp === 'true' ? handleSignUp : handleLogin }
           formState={formData}
         /> :
         <AuthQuestion
