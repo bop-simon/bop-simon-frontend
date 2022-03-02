@@ -10,12 +10,14 @@ export default function AuthQuestion({ handleChange }) {
         variant="outlined" 
         onClick={handleChange}
         name='isSigningUp'
+        value={true}
       >sign me up</Button>
       <Button 
         sx={ { borderRadius: 28 } }
         variant="outlined" 
         onClick={handleChange} 
         name='isSigningUp'
+        value={false}
       >log me in</Button>
     </div>
   )
