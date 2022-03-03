@@ -16,18 +16,15 @@ export default function About() {
   
 
    const handleUpdatePassword = async() => {
-     const updatePass = confirm('Would you like to update your password?');
-     if(updatePass){
        editsProfile(id,{password})
-     }
    }
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value)
-  }
+   const toggleEdit = () => {
+     setIsEditing(!isEditing)
+   }
 
-  const toggleEdit = () => {
-    setIsEditing(!isEditing)
+  const handleChange = (e) => {
+    setPassword(e.target.value)
   }
 
   return (
@@ -44,17 +41,24 @@ export default function About() {
 
       {
         isEditing ?
-        <>
+        <div
+          className={styles.editPass}
+        >
           <TextField 
-          onChange={handlePasswordChange}
-          label="password" 
+          onChange={handleChange}
+          label="new pass" 
           color="secondary" 
           focused />
+          <br />
         <Button 
           variant="outlined" 
           // onClick={handleClick}
         >submit</Button>
-        </> :
+        <Button 
+          variant="outlined" 
+          onClick={toggleEdit}
+        >cancel</Button>
+        </div> :
         ''
       }
     </div>
