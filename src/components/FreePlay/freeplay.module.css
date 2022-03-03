@@ -91,3 +91,9 @@
 button:active {
   background-color: aqua;
 }
+
+.controlsRecord {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
