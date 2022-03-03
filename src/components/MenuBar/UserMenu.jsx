@@ -1,18 +1,13 @@
 import AccountCircle from '@mui/icons-material/AccountCircle'
 import { IconButton, MenuItem, Menu } from '@mui/material'
-<<<<<<< HEAD
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
-=======
 import { Link, useNavigate } from 'react-router-dom'
 import { useUser } from '../../context/UserContext.jsx'
 import { signOut } from '../../services/auth.js'
 import styles from './menubar.module.css'
 
->>>>>>> 6273fbc2dfc940ff6835322061534fa0b41a3250
 export default function UserMenu() {
   const [anchorEl, setAnchorEl] = useState(null)
-  const [auth, setAuth] = useState(true)
+  // const [auth, setAuth] = useState(true)
 
   const { user, setUser } = useUser()
 
