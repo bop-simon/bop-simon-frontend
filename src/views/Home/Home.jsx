@@ -7,6 +7,7 @@ import { Button } from '@mui/material'
 import Popup from '../../components/Popup/Popup.jsx'
 import styles from './home.css'
 import { useUser } from '../../context/UserContext.jsx'
+import MenuBar from '../../components/MenuBar/MenuBar.jsx'
 
 export default function Home() {
   const [toggleTutorial, setToggleTutorial] = useState(false)
