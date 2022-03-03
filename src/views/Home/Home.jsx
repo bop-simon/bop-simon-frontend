@@ -31,8 +31,8 @@ export default function Home() {
         // 'load all the cool stuff'
       }
       <div className={styles.controls}>
-        {!toggleTutorial ? <Button onClick={open}>instructions</Button> : ''}
-
+        {!toggleTutorial ? 
+        <>
         <FormGroup sx={{ display: 'block' }}>
           <FormControlLabel
             control={
@@ -45,6 +45,10 @@ export default function Home() {
             label={gamePlay ? 'Game Mode' : 'Free Play'}
           />
         </FormGroup>
+        <Button onClick={open}>instructions</Button>
+        </>
+        :
+         ''}
       </div>
       {toggleTutorial ? (
         <Popup

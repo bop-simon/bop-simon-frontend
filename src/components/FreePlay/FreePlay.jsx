@@ -63,10 +63,24 @@ export default function FreePlay() {
     await postUserSong(notesArray)
   }
 
-  const playUserSong = async () => {
-    const userSongs = await getAllUserSongs()
-    console.log(userSongs)
+  const playUserSong = async (song) => {
+    playInterval(song)
   }
+
+  function playInterval(notes) {
+    const limiter = new Tone.Limiter(-2);
+    const now = Tone.now()
+    const synth = new Tone.Synth(synthSounds).chain(limiter).toDestination();
+    const interval = new Tone.Sequence(function(time, note){
+        synth.triggerAttackRelease(note, now);
+    }, notes, "4n");
+    //8n super fast >> 1n very slow
+
+    //begin at the beginning
+    interval.loop = false;
+    interval.start(0);    
+    Tone.Transport.start("+0.1");
+}
 
   useEffect(() => {
     const currentUser = getCurrentUser()
@@ -79,8 +93,7 @@ export default function FreePlay() {
   return (
     <section className={styles.gameMain}>
       <div className={styles.App}>
-        <div className={styles.main}>
-        <div className={styles.controls}>
+        <div className={styles.controlsRecord}>
           <Button onClick={startRecording}>Record</Button>
           {
             isRecording ?
@@ -93,6 +106,7 @@ export default function FreePlay() {
           <Button onClick={playUserSong}>Play</Button>
           
         </div>
+        <div className={styles.main}>
           <div className={styles.container}>
             {/*
             C = Pink
