@@ -1,5 +1,7 @@
 import * as Tone from 'tone'
 import styles from './game.module.css'
+import { Link } from 'react-router-dom'
+import { randomNumber } from '../../utils/Gameplay/gamelogic'
 
 let userHistory = []
 
