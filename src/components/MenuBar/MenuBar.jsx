@@ -6,15 +6,10 @@ import {
   AppBar,
   Typography,
   Toolbar,
-  Box,
-  FormGroup,
-  FormControlLabel,
-  Switch
+  Box
 } from '@mui/material'
 
 export default function MenuBar() {
-  const [anchorEl, setAnchorEl] = useState(null)
-  const [auth, setAuth] = useState(true)
 
   const handleChange = (event) => {
     setAuth(event.target.checked)
@@ -32,18 +27,6 @@ export default function MenuBar() {
       sx={{ justifyContent: 'center', paddingBottom: 6 }}
       className={styles.appBar}
     >
-      <FormGroup sx={{ display: 'block' }}>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={auth}
-              onChange={handleChange}
-              aria-label="login switch"
-            />
-          }
-          label={auth ? 'Logout' : 'Login'}
-        />
-      </FormGroup>
       <AppBar
         position="static"
         sx={{
@@ -60,7 +43,7 @@ export default function MenuBar() {
         >
           <HamburgerMenu />
           <Typography component="div" sx={{ flexGrow: 1 }}></Typography>
-          {auth && <UserMenu />}
+          <UserMenu />
         </Toolbar>
       </AppBar>
     </Box>

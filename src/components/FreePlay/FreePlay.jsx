@@ -1,9 +1,20 @@
 import * as Tone from 'tone'
 import styles from './freeplay.module.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getAllUserSongs, postUserSong } from '../../services/songs'
+import { Button } from '@mui/material'
+import { get } from 'superagent'
+import { getCurrentUser } from '../../services/user.js'
 
-const synthSounds = {
+export default function FreePlay() {
+  const [isRecording, setIsRecording] = useState(false)
+  const [favSong, setFavSong] = useState([])
+  const [userSongs, setUserSongs] = useState([])
+  console.log(userSongs)
+
+  let notesArray = [] 
+
+  const synthSounds = {
   oscillator: {
     type: 'triangle2'
   },
@@ -13,31 +24,24 @@ const synthSounds = {
     sustain: 0.2,
     release: 0.8
   }
-}
-const limiter = new Tone.Limiter(-2)
-const synth = new Tone.Synth(synthSounds).chain(limiter).toDestination()
+  }
+  const limiter = new Tone.Limiter(-2)
+  const synth = new Tone.Synth(synthSounds).chain(limiter).toDestination()
 
-function playNote(note) {
-  const element = document.getElementById(note)
-  const noteFreq = Tone.Frequency(note)
-  element.style.opacity = '.2'
-  element.style.borderRadius = '100px'
-  synth.triggerAttackRelease(noteFreq, '2n')
-  setTimeout(() => {
-    element.style.opacity = '1'
-    element.style.borderRadius = '0px'
-  }, 1000)
-}
-
-export default function FreePlay() {
-  const [isRecording, setIsRecording] = useState(false)
-  const [favSong, setFavSong] = useState([])
-
-  let notesArray = []
+  function playNote(note) {
+    const element = document.getElementById(note)
+    const noteFreq = Tone.Frequency(note)
+    element.style.opacity = '.2'
+    element.style.borderRadius = '100px'
+    synth.triggerAttackRelease(noteFreq, '2n')
+    setTimeout(() => {
+      element.style.opacity = '1'
+      element.style.borderRadius = '0px'
+    }, 1000)
+  }
 
   const pushNotes = (note) => {
     notesArray.push(note)
-    console.log(notesArray)
   }
 
   const startRecording = () => {
@@ -63,16 +67,32 @@ export default function FreePlay() {
     const userSongs = await getAllUserSongs()
     console.log(userSongs)
   }
-  // const playUserSong = async () => {
-  //   const userSongs = await getAllUserSongs();
 
-  // }
+  useEffect(() => {
+    const currentUser = getCurrentUser()
+      if (currentUser.username) {
+          const userSongs = getAllUserSongs()
+          setUserSongs(userSongs)
+      }
+  }, [isRecording])
 
   return (
     <section className={styles.gameMain}>
       <div className={styles.App}>
         <div className={styles.main}>
-          <p>This is the Free Play Board</p>
+        <div className={styles.controls}>
+          <Button onClick={startRecording}>Record</Button>
+          {
+            isRecording ?
+            <Button onClick={stopRecording}>Stop</Button> :
+            ''
+          }
+          {// need to conditionally render button to only appear if the user has songs to play (and needs to appear in a list of the users songs)
+         /* <button onClick={playUserSong}>Play</button> */
+         }
+          <Button onClick={playUserSong}>Play</Button>
+          
+        </div>
           <div className={styles.container}>
             {/*
             C = Pink
@@ -267,10 +287,6 @@ export default function FreePlay() {
               id="g5"
             ></div>
           </div>
-          <button onClick={startRecording}>Record</button>
-          <button onClick={stopRecording}>Stop</button>
-          <button onClick={playUserSong}>Play</button>
-          {/* <button onClick={playUserSong}>Play</button> */}
         </div>
       </div>
     </section>

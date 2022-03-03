@@ -39,7 +39,7 @@ export default function Auth() {
         await signUp(username, password)
         let user = await logIn(username, password)
         console.log('auth user', user)
-        setUser(user)
+        await setUser(user)
         console.log('sign up and login successful')
         navigate('/home')
       } catch (error) {
@@ -59,7 +59,8 @@ export default function Auth() {
 
       try {
         const user = await logIn(username, password)
-        setUser(user)
+        await setUser(user)
+        // postProfile({ user.id, score, bio})
         console.log('login successful')
         navigate('/home')
       } catch (error) {
