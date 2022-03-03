@@ -1,7 +1,8 @@
 import * as Tone from 'tone'
 import styles from './game.module.css'
 import { useEffect, useState } from 'react'
-import { getCurrentSong } from '../../utils/Gameplay/gamelogic'
+import { getCurrentSong, getRandomNote } from '../../utils/Gameplay/gamelogic'
+// import { useUser } from '../../context/UserContext'
 
 export default function Game() {
 //set the level in UserContext to grab it later
@@ -10,7 +11,7 @@ const userLevel = 2
 const [currentSong, setCurrentSong] = useState()
 let playerHistory = []
 let cpuHistory = []
-// setCurrentSong(getCurrentSong(userLevel))
+// setCurrentSong(getCurrentSong(1))
 
 const synthSounds = {
   oscillator: {
@@ -27,10 +28,31 @@ const limiter = new Tone.Limiter(-2)
 const synth = new Tone.Synth(synthSounds).chain(limiter).toDestination()
 
 function startGame(){
-  const note = currentSong[(playerHistory.length)]
-  playNote(note);
-  cpuHistory.push(note)
+  console.log('game started', getCurrentSong(2))
+  const note = getCurrentSong(1)
+  //play note is looking for a string
+  return playNote(note)
+  // return getRandomNote(note)
+  // const simonNote = ['c4', 'c2', 'b3', 'g3']
+  // const playerNote = []
+  // if (simonNote !== playerNote){
+  //   console.log('You lose!')
+  // }
+  // const note = currentSong[(playerHistory.length)]
+  // playNote(note);
+  // cpuHistory.push(note)
   }
+
+  const handleClick = (note) =>{
+    playNote(note)
+    playerHistory.push(note)
+  }
+ 
+
+function gameOver(){
+//if user notes dont equal computer notes, then bring a Bop-Up
+}
+
 
 //playerHistory.push(note) onClick
 
@@ -46,10 +68,6 @@ function playNote(note) {
   }, 1000)
 }
 
-const handleClick = (note) =>{
-  playNote(note)
-  playerHistory.push(note)
-}
 
 // useEffect(() => {
 //   if(playerHistory !== cpuHistory){
@@ -57,7 +75,7 @@ const handleClick = (note) =>{
 //   } else {
 //       return startGame()
 //   }
-// }, [playerHistory])
+// }, [])
 
 
   return (
@@ -102,7 +120,7 @@ const handleClick = (note) =>{
             <div onClick={() => playNote('f5')} id="f5"></div>
             <div onClick={() => playNote('g5')} id="g5"></div>
           </div>
-          {/* <button onClick={startGame}>start</button> */}
+          <button onClick={startGame}>start</button>
         </div>
       </div>
     </section>

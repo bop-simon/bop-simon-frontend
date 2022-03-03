@@ -65,6 +65,7 @@ export default function Home() {
       ) : (
         <>{gamePlay ? <Game /> : <FreePlay />}</>
       )}
+
     </main>
   )
 }

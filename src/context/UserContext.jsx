@@ -1,4 +1,5 @@
 import { useContext, useEffect, useMemo, createContext, useState } from "react";
+import { getAllProfiles, getProfileById } from "../services/profile";
 import { getCurrentUser} from "../services/user";
 
 const UserContext = createContext()
@@ -8,6 +9,8 @@ const UserProvider = ({children}) =>{
     const [loading, setLoading] = useState(true)
     console.log('USER IN CONTEXT', user)
 
+    // const [userLevel, setUserLevel] = useState(0)
+   
     useEffect(() => {
       const fetchCurrentUser = async() => {
         console.log('hey hi helooooooo')
@@ -22,6 +25,20 @@ const UserProvider = ({children}) =>{
       } 
       fetchCurrentUser()
     }, [])
+
+    
+    // useEffect(() => {
+    //   const fetchLevel = async () => {
+    //     const oneProfile = await getProfileById(id)
+    //     console.log('profile', oneProfile)
+    //     if(oneProfile){
+    //       setLevel(oneProfile)
+    //     } else {
+    //       setLevel(0)
+    //     }
+    //   }
+    //   fetchLevel()
+    // }, [])
 
     const value = useMemo(() => ({ user, setUser, loading }), [user, loading]);
 
