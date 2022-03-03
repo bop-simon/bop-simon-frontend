@@ -1,10 +1,10 @@
 import MenuBar from '../../components/MenuBar/MenuBar'
 import styles from './about.module.css'
 import simon from '../../assets/simon.png'
-import sarani from '../../assets/OctogonWHeadphones.png'
-import julius from '../../assets/PentagonWHeadphones.png'
-import taylor from '../../assets/ScaleneBigEyes.png.png'
-import katie from '../../assets/ShapeWEarbuds.png'
+import sarani from '../../assets/Sarani.png'
+import julius from '../../assets/Julius.png'
+import taylor from '../../assets/Taylor.png'
+import katie from '../../assets/Katie.png'
 
 export default function About() {
   return (

@@ -1,8 +1,14 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+}
+
 .profileCard {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   background-color: #fcd116;
   border-radius: 1vw;
   border: 2px solid black;
@@ -14,12 +20,22 @@
   padding-top: 0;
 }
 
-.simon {
-  height: 15em;
-  border: 3px solid black;
-  margin: 5vw;
+.profileCard > p{
+  font-size: .65em;
 }
 
-h1 {
+.profileCard > img {
+  height: 25vw;
+  margin-top: 5vh;
+}
+
+.profileCard > h1 {
   color: #ff5c8a;
+  font-size: 2em;
+  margin-bottom: 0;
+}
+
+.profileCard > h2 {
+  font-size: .85em;
+  margin-bottom: 0;
 }
