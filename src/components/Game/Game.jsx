@@ -1,6 +1,7 @@
 import * as Tone from 'tone'
 import styles from './game.module.css'
 import { Link } from 'react-router-dom'
+import { randomNumber } from '../../utils/Gameplay/gamelogic'
 
 let userHistory = []
 
@@ -30,6 +31,8 @@ function playNote(note) {
   }, 1000)
 }
 // CPU turn: songArray.push >> nowPlayingArray >> loop thru nowPlayingArray, for each note: playNote(note)
+
+
 
 export default function Game() {
   return (
