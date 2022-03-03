@@ -5,13 +5,13 @@ export default function LeaderList({ leaders }) {
     <div>
       <h1>Leaderboard</h1>
       <h2>Top Scores! Can you beat the Bop?</h2>
-      <ul>
+      <ol>
         {leaders.map((leader) => (
           <li key={leader.username}>
             {leader.username} <br /> 🎵 {leader.score} pts
           </li>
         ))}
-      </ul>
+      </ol>
     </div>
   )
 }
