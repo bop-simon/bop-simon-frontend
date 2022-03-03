@@ -1,10 +1,17 @@
 import AccountCircle from '@mui/icons-material/AccountCircle'
 import { IconButton, MenuItem, Menu } from '@mui/material'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useUser } from '../../context/UserContext.jsx'
+import { signOut } from '../../services/auth.js'
+import styles from './menubar.module.css'
 
 export default function UserMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null)
   const [auth, setAuth] = React.useState(true)
+
+  const { user, setUser } = useUser()
+
+  const navigate = useNavigate()
 
   const handleChange = (event) => {
     setAuth(event.target.checked)
@@ -17,9 +24,19 @@ export default function UserMenu() {
     setAnchorEl(null)
   }
 
+  const handleLogout = async () => {
+    await signOut()
+    navigate('/')
+    setUser({})
+  }
+
   return (
     <>
-      <h3>sillyg00se 25pts Rank 3</h3>
+      <div className={styles.userInfo}>
+        {/* <h3>Rank 3</h3> */}
+        <h3>{user.username}</h3>
+        <h3>score: {user.score ? user.score : `0`}</h3>
+      </div>
       <IconButton
         size="large"
         aria-label="account of current user"
@@ -61,8 +78,7 @@ export default function UserMenu() {
           <Link to="/profile">Profile</Link>
         </MenuItem>
         <MenuItem
-          onClick={handleClose}
-          // handleLogOut ^^^
+          onClick={handleLogout}
           sx={{
             borderBottom: 2,
             borderLeft: 2,

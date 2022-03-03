@@ -1,0 +1,8 @@
+.userInfo {
+  display:flex;
+  flex-direction: row;
+}
+
+.userInfo > h3 {
+  margin-right: 2.5vw;
+}
