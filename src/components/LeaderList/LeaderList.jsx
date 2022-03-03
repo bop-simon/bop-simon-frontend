@@ -5,7 +5,7 @@ export default function LeaderList({ leaders }) {
     <div>
         <h1>Bop's Leading Scorer's</h1>
         <ul>
-        {leaders.map((leader) => <li key={leader.id}>
+        {leaders.map((leader) => <li key={leader.username}>
         {leader.username}:
         {leader.score}</li> )}
         </ul>
