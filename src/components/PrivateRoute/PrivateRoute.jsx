@@ -5,8 +5,11 @@ import { useUser } from '../../context/UserContext.jsx';
 // screen if you're not yet authenticated.
 export default function PrivateRoute({ children }) {
 
-  const { user } = useUser();
+  const { user, loading } = useUser();
   console.log(user);
+  if (loading) {
+    return (<p>Loading</p>)
+  }
 
   return ( 
     <>

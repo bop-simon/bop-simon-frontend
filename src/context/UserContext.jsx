@@ -23,7 +23,7 @@ const UserProvider = ({children}) =>{
       fetchCurrentUser()
     }, [])
 
-    const value = useMemo(() => ({ user, setUser, loading }), [user]);
+    const value = useMemo(() => ({ user, setUser, loading }), [user, loading]);
 
     return <UserContext.Provider value={value}>{children}</UserContext.Provider>
 
