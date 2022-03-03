@@ -4,12 +4,12 @@ export async function postUser(id) {
   const response = await request.post(`${process.env.PROD_URL}/users/${id}`)
   .send(users)
 
-  return response.body; 
+  return response.body;
 }
 
 export async function getAllUsers() {
   const response = await request.get(`${process.env.PROD_URL}/users`)
-  return response.body; 
+  return response.body;
 }
 
 export async function getUserById(id) {
@@ -41,8 +41,6 @@ export async function editsUser(id, password) {
 
 export async function getByHighScore(){
   const response = await request
-  .get(`${process.env.PROD_URL}/users/leaderboard`)
-  .order('score', {ascending:true})
+  .get(`${process.env.PROD_URL}/users/leaderboard`);
   return response.body
 }
-
