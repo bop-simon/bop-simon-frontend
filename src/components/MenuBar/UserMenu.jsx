@@ -1,10 +1,14 @@
 import AccountCircle from '@mui/icons-material/AccountCircle'
 import { IconButton, MenuItem, Menu } from '@mui/material'
 import { Link } from 'react-router-dom'
+import { useUser } from '../../context/UserContext.jsx'
+import { signOut } from '../../services/auth.js'
 
 export default function UserMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null)
   const [auth, setAuth] = React.useState(true)
+
+  const { setUser } = useUser()
 
   const handleChange = (event) => {
     setAuth(event.target.checked)
@@ -15,6 +19,11 @@ export default function UserMenu() {
 
   const handleClose = () => {
     setAnchorEl(null)
+  }
+
+  const handleLogout = async () => {
+    await signOut()
+    setUser({})
   }
 
   return (
@@ -61,8 +70,7 @@ export default function UserMenu() {
           <Link to="/profile">Profile</Link>
         </MenuItem>
         <MenuItem
-          onClick={handleClose}
-          // handleLogOut ^^^
+          onClick={handleLogout}
           sx={{
             borderBottom: 2,
             borderLeft: 2,
