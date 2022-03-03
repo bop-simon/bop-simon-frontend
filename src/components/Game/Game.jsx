@@ -1,8 +1,16 @@
 import * as Tone from 'tone'
 import styles from './game.module.css'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { getCurrentSong } from '../../utils/Gameplay/gamelogic'
 
-let userHistory = []
+export default function Game() {
+//set the level in UserContext to grab it later
+// const {user, setUser, userLevel, setUserLevel}= useUser()
+const userLevel = 2
+const [currentSong, setCurrentSong] = useState()
+let playerHistory = []
+let cpuHistory = []
+setCurrentSong(getCurrentSong(userLevel))
 
 const synthSounds = {
   oscillator: {
@@ -16,7 +24,15 @@ const synthSounds = {
   }
 }
 const limiter = new Tone.Limiter(-2)
-const synth = new Tone.Synth(synthSounds).chain(limiter, Tone.Master)
+const synth = new Tone.Synth(synthSounds).chain(limiter).toDestination()
+
+function startGame(){
+  const note = currentSong[(playerHistory.length)]
+  playNote(note);
+  cpuHistory.push(note)
+  }
+
+//playerHistory.push(note) onClick
 
 function playNote(note) {
   const element = document.getElementById(note)
@@ -29,9 +45,21 @@ function playNote(note) {
     element.style.borderRadius = '0px'
   }, 1000)
 }
-// CPU turn: songArray.push >> nowPlayingArray >> loop thru nowPlayingArray, for each note: playNote(note)
 
-export default function Game() {
+const handleClick = (note) =>{
+  playNote(note)
+  playerHistory.push(note)
+}
+
+useEffect(() => {
+  if(playerHistory !== cpuHistory){
+      return gameOver()
+  } else {
+      return startGame()
+  }
+}, [playerHistory])
+
+
   return (
     <section className={styles.gameMain}>
       <div className={styles.App}>
@@ -47,7 +75,7 @@ export default function Game() {
             A = Bop Simon Green
             B = Bop Simon Blue 
             */}
-            <div onClick={() => playNote('c2')} id="c2"></div>
+            <div onClick={() => playNote('c2')} id="c2" aria-label="c2"></div>
             <div onClick={() => playNote('d2')} id="d2"></div>
             <div onClick={() => playNote('e2')} id="e2"></div>
             <div onClick={() => playNote('f2')} id="f2"></div>

@@ -6,8 +6,8 @@ import { signOut } from '../../services/auth.js'
 import styles from './menubar.module.css'
 
 export default function UserMenu() {
-  const [anchorEl, setAnchorEl] = React.useState(null)
-  const [auth, setAuth] = React.useState(true)
+  const [anchorEl, setAnchorEl] = useState(null)
+  // const [auth, setAuth] = useState(true)
 
   const { user, setUser } = useUser()
 

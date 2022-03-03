@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from '@mui/material/styles'
-import Splash from './components/Splash/Splash'
+import Splash from './views/Splash/Splash'
 import Home from './views/Home/Home'
 import Leaderboard from './views/Leaderboard/Leaderboard'
 import About from './views/About/About'
@@ -9,7 +9,6 @@ import Theme from './context/Theme.js'
 import Auth from './views/Auth/Auth.jsx'
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx'
 import { UserProvider } from './context/UserContext.jsx'
-
 
 export default function App() {
   return (

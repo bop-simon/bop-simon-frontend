@@ -6,6 +6,7 @@ Palette
 #A51FFF Purple x 11
 #C99DA3 Tuscany
 #3BC06F Bop Simon Green 
+#009fb7 Bop Simon Blue
 */
 
 /*
@@ -29,7 +30,6 @@ html {
 a:link,
 a:visited {
   text-decoration: none;
-  color: black;
 }
 
 .splash {
@@ -55,17 +55,21 @@ a:visited {
 h1 {
   font-family: 'Quicksand', sans-serif;
   font-weight: 900;
-  font-size: 4em;
+  font-size: 3em;
   text-align: center;
   color: #ff5c8a;
+  padding-bottom: 0px;
 }
 /* see if <Typography variant="h1"> works */
 
 h2 {
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 900;
-  font-size: 3em;
-  color: #a51fff;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  font-size: 1.2em;
+  color: #333;
+  font-style: italic;
+  padding-top: 0px;
+  text-align: center;
 }
 
 h3 {

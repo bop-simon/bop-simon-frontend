@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
 import MenuIcon from '@mui/icons-material/Menu'
 import { IconButton, MenuItem, Menu } from '@mui/material'
+import { useState } from 'react'
 
 export default function HamburgerMenu() {
-  const [anchorEl, setAnchorEl] = React.useState(null)
-  const [auth, setAuth] = React.useState(true)
+  const [anchorEl, setAnchorEl] = useState(null)
+  const [auth, setAuth] = useState(true)
 
   const handleChange = (event) => {
     setAuth(event.target.checked)
