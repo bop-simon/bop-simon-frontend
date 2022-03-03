@@ -1,25 +1,27 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useUser } from '../../context/UserContext'
-import { getRandomNote, getCurrentSong } from './gamelogic'
+import { getCurrentSong, startGame } from './gamelogic'
 
-const {user, setUser}= useUser()
+//set the level in UserContext to grab it later
+// const {user, setUser, userLevel, setUserLevel}= useUser()
+const userLevel = 2
+const [currentSong, setCurrentSong]=useState(userLevel)
 let playerHistory = []
 let cpuHistory = []
+setCurrentSong(getCurrentSong(userLevel))
 
+function startGame(){
+  const note = currentSong[(playerHistory.length)]
+  playNote(note);
+  cpuHistory.push(note)
+  }
 
 useEffect(() => {
-   if(playerHistory === cpuHistory){
-        return playerHistory
-   } else if (playerHistory !== cpuHistory){
+   if(playerHistory !== cpuHistory){
        return gameOver()
+   } else {
+       return startGame()
    }
 }, [playerHistory])
 
-export function startGame(level){
-    let currentSong = getCurrentSong(level)
-    cpuHistory.push(currentSong[0] ++ //note sure how to do the counter loop
-        )
-        currentSong.forEach((note) => {
-            playNote(note)
-        })
-}
+//in game.jsx playerHistory.push(note) onClick

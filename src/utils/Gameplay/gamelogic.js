@@ -12,14 +12,11 @@ export function getRandomNote(){
     const key = randomLetter()
     return key + octave
 }
-//level 1 = 5 notes
-//currentSong.length = level * 5
 
 export function getCurrentSong(level){
     let currentSong = []
     const songLength = level * 5
     let i=0;
-
  while (i < songLength){
    const note = getRandomNote()
    currentSong.push(note)
@@ -27,5 +24,3 @@ export function getCurrentSong(level){
  }
  return currentSong
 }
-
-
