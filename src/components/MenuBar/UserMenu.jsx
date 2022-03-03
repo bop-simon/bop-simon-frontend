@@ -1,6 +1,6 @@
 import AccountCircle from '@mui/icons-material/AccountCircle'
 import { IconButton, MenuItem, Menu } from '@mui/material'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useUser } from '../../context/UserContext.jsx'
 import { signOut } from '../../services/auth.js'
 
@@ -8,7 +8,9 @@ export default function UserMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null)
   const [auth, setAuth] = React.useState(true)
 
-  const { setUser } = useUser()
+  const { user, setUser } = useUser()
+
+  const navigate = useNavigate()
 
   const handleChange = (event) => {
     setAuth(event.target.checked)
@@ -23,12 +25,14 @@ export default function UserMenu() {
 
   const handleLogout = async () => {
     await signOut()
+    navigate('/')
     setUser({})
   }
 
   return (
     <>
-      <h3>sillyg00se 25pts Rank 3</h3>
+      <h3>25pts Rank 3</h3>
+      <h3>{user.username}</h3>
       <IconButton
         size="large"
         aria-label="account of current user"

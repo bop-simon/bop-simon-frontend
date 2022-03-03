@@ -22,5 +22,6 @@ export async function signUp(username, password) {
 export async function signOut(){
    const response = await request 
    .delete(`${process.env.PROD_URL}/users/sessions`)
+   .withCredentials()
 return response.body;
 }
