@@ -3,6 +3,7 @@ import { IconButton, MenuItem, Menu } from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom'
 import { useUser } from '../../context/UserContext.jsx'
 import { signOut } from '../../services/auth.js'
+import styles from './menubar.module.css'
 
 export default function UserMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -31,8 +32,11 @@ export default function UserMenu() {
 
   return (
     <>
-      <h3>25pts Rank 3</h3>
-      <h3>{user.username}</h3>
+      <div className={styles.userInfo}>
+        {/* <h3>Rank 3</h3> */}
+        <h3>{user.username}</h3>
+        <h3>score: {user.score ? user.score : `0`}</h3>
+      </div>
       <IconButton
         size="large"
         aria-label="account of current user"
