@@ -1,0 +1,25 @@
+.profileCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fcd116;
+  border-radius: 1vw;
+  border: 2px solid black;
+  font-family: 'IBM Plex Mono';
+  font-weight: 600;
+  font-size: 1.25em;
+  letter-spacing: 0.1em;
+  padding: 2vw;
+  padding-top: 0;
+}
+
+.simon {
+  height: 15em;
+  border: 3px solid black;
+  margin: 5vw;
+}
+
+h1 {
+  color: #ff5c8a;
+}

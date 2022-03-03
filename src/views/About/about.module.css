@@ -1,0 +1,37 @@
+.simon {
+  height: 12em;
+  border: 3px;
+}
+
+.aboutCard {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff5c8a;
+  border-radius: 1vw;
+  border: 2px solid black;
+  font-family: 'IBM Plex Mono';
+  font-weight: 600;
+  font-size: 1.25em;
+  letter-spacing: 0.1em;
+  padding: 2vw;
+  padding-top: 0;
+}
+
+.aboutHeading {
+  color: #fcd116;
+}
+.team{
+  display: flex;
+  flex-direction: row;
+  gap: 17px;
+  font-size: small;
+  font-family: var(--monospace);
+  align-items: center;
+  line-height: normal;
+}
+.link{
+  color:#fcd116
+}
