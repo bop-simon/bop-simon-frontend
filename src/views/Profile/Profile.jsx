@@ -35,6 +35,11 @@ export default function About() {
         <h1>{user.username}</h1>
         <h2>High Score</h2>
         <p>{user.score < 1 ?`looks like someone hasn't been able to beat Simon yet...`:user.score}</p>
+        {user.bio ? 
+        'we have a user bio' :
+        'we do not have a bio'
+        } 
+        <textarea name="" id="" cols="30" rows="10"></textarea>
       </section>
       <Button
         onClick={toggleEdit}>update password</Button>
