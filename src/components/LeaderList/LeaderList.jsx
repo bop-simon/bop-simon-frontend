@@ -3,12 +3,15 @@ import React from 'react'
 export default function LeaderList({ leaders }) {
   return (
     <div>
-        <h1>Bop's Leading Scorer's</h1>
-        <ul>
-        {leaders.map((leader) => <li key={leader.username}>
-        {leader.username}:
-        {leader.score}</li> )}
-        </ul>
-        </div>
+      <h1>Leaderboard</h1>
+      <h2>Top Scores! Can you beat the Bop?</h2>
+      <ul>
+        {leaders.map((leader) => (
+          <li key={leader.username}>
+            {leader.username} <br /> 🎵 {leader.score} pts
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }

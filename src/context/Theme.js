@@ -1,37 +1,37 @@
-import { createTheme } from '@material-ui/core/styles';
+import { createTheme } from '@material-ui/core/styles'
 
 const theme = createTheme({
   palette: {
     type: 'light',
     primary: {
-      main: '#ff5c8a',
+      main: '#ff5c8a'
     },
     secondary: {
-      main: '#a51fff',
+      main: '#a51fff'
     },
     pink: {
-      main: '#ff5c8a',
+      main: '#ff5c8a'
     },
     purple: {
-      main: '#A51FFF',
+      main: '#A51FFF'
     },
     yellow: {
-      main: '#FCD116',
+      main: '#FCD116'
     },
     jet: {
-      primary: '#333333',
+      primary: '#333333'
     },
     green: {
-      main: '#3BC06F',
+      main: '#3BC06F'
     },
     tuscany: {
-      main: '#C99DA3',
+      main: '#C99DA3'
     },
     text: {
-      primary: '#333333',
+      primary: '#333333'
     },
     divider: '#FCD116',
-    appBar: '#fff',
+    appBar: '#fff'
   },
   overrides: {
     MuiSwitch: {
@@ -39,7 +39,7 @@ const theme = createTheme({
         width: 42,
         height: 26,
         padding: 0,
-        margin: 8,
+        margin: 8
       },
       switchBase: {
         padding: 1,
@@ -48,13 +48,13 @@ const theme = createTheme({
           color: '#fff',
           '& + $track': {
             opacity: 1,
-            border: 'none',
-          },
-        },
+            border: 'none'
+          }
+        }
       },
       thumb: {
         width: 24,
-        height: 24,
+        height: 24
       },
       track: {
         borderRadius: 13,
@@ -62,8 +62,8 @@ const theme = createTheme({
         backgroundColor: '#fafafa',
         opacity: 1,
         transition:
-          'background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
-      },
+          'background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms'
+      }
     },
     MuiButton: {
       root: {
@@ -73,27 +73,27 @@ const theme = createTheme({
         boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
         color: 'white',
         height: 48,
-        padding: '0 30px',
-      },
-    },
+        padding: '0 30px'
+      }
+    }
   },
   typography: {
     fontFamily: 'Work Sans',
     h1: {
       fontFamily: 'serif',
-      fontWeight: 700,
+      fontWeight: 700
     },
     h2: {
-      fontFamily: 'IBM Plex Mono',
+      fontFamily: 'IBM Plex Mono'
     },
     overline: {
-      fontFamily: 'IBM Plex Mono',
+      fontFamily: 'IBM Plex Mono'
     },
     button: {
       fontFamily: 'Quicksand',
-      fontWeight: 700,
-    },
-  },
-});
+      fontWeight: 700
+    }
+  }
+})
 
-export default theme;
+export default theme
