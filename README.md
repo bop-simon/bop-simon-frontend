@@ -1,3 +1,9 @@
+Icons from Flaticon.com ?
+Material UI
+jest
+react testing library
+framer motion
+tone.js
 
 # Bop-Simon
 
@@ -24,7 +30,7 @@
 <br>
 <br>
 
-### This app allows users to play a fun game of musical simon. 
+### This app allows users to play a fun game of musical simon.
 
 <br>
 
@@ -41,4 +47,3 @@
 
 Icons from Flaticon.com
 Material UI
-
