@@ -1,8 +1,8 @@
 import request from "superagent";
 
-export async function postProfile({ id, score, bio}) {
-  const response = await request.post(`${process.env.PROD_URL}/profiles/${id}`)
-  .send({user_id: id, score, bio })
+export async function postProfile({ score, bio}) {
+  const response = await request.post(`${process.env.PROD_URL}/profiles`).withCredentials()
+  .send({ score, bio })
   return response.body; 
 }
 
