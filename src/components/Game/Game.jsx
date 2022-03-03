@@ -107,31 +107,31 @@ export default function Game() {
               id="c2"
               aria-label="c2"
             ></div>
-            <div onClick={() => playNote('d2')} id="d2"></div>
-            <div onClick={() => playNote('e2')} id="e2"></div>
-            <div onClick={() => playNote('f2')} id="f2"></div>
-            <div onClick={() => playNote('g2')} id="g2"></div>
-            <div onClick={() => playNote('a2')} id="a2"></div>
-            <div onClick={() => playNote('b2')} id="b2"></div>
-            <div onClick={() => playNote('c3')} id="c3"></div>
-            <div onClick={() => playNote('d3')} id="d3"></div>
-            <div onClick={() => playNote('e3')} id="e3"></div>
-            <div onClick={() => playNote('f3')} id="f3"></div>
-            <div onClick={() => playNote('g3')} id="g3"></div>
-            <div onClick={() => playNote('a3')} id="a3"></div>
-            <div onClick={() => playNote('b3')} id="b3"></div>
-            <div onClick={() => playNote('c4')} id="c4"></div>
-            <div onClick={() => playNote('d4')} id="d4"></div>
-            <div onClick={() => playNote('e4')} id="e4"></div>
-            <div onClick={() => playNote('f4')} id="f4"></div>
-            <div onClick={() => playNote('g4')} id="g4"></div>
-            <div onClick={() => playNote('a4')} id="a4"></div>
-            <div onClick={() => playNote('b4')} id="b4"></div>
-            <div onClick={() => playNote('c5')} id="c5"></div>
-            <div onClick={() => playNote('d5')} id="d5"></div>
-            <div onClick={() => playNote('e5')} id="e5"></div>
-            <div onClick={() => playNote('f5')} id="f5"></div>
-            <div onClick={() => playNote('g5')} id="g5"></div>
+            <div onClick={() => handleClick('d2')} id="d2"></div>
+            <div onClick={() => handleClick('e2')} id="e2"></div>
+            <div onClick={() => handleClick('f2')} id="f2"></div>
+            <div onClick={() => handleClick('g2')} id="g2"></div>
+            <div onClick={() => handleClick('a2')} id="a2"></div>
+            <div onClick={() => handleClick('b2')} id="b2"></div>
+            <div onClick={() => handleClick('c3')} id="c3"></div>
+            <div onClick={() => handleClick('d3')} id="d3"></div>
+            <div onClick={() => handleClick('e3')} id="e3"></div>
+            <div onClick={() => handleClick('f3')} id="f3"></div>
+            <div onClick={() => handleClick('g3')} id="g3"></div>
+            <div onClick={() => handleClick('a3')} id="a3"></div>
+            <div onClick={() => handleClick('b3')} id="b3"></div>
+            <div onClick={() => handleClick('c4')} id="c4"></div>
+            <div onClick={() => handleClick('d4')} id="d4"></div>
+            <div onClick={() => handleClick('e4')} id="e4"></div>
+            <div onClick={() => handleClick('f4')} id="f4"></div>
+            <div onClick={() => handleClick('g4')} id="g4"></div>
+            <div onClick={() => handleClick('a4')} id="a4"></div>
+            <div onClick={() => handleClick('b4')} id="b4"></div>
+            <div onClick={() => handleClick('c5')} id="c5"></div>
+            <div onClick={() => handleClick('d5')} id="d5"></div>
+            <div onClick={() => handleClick('e5')} id="e5"></div>
+            <div onClick={() => handleClick('f5')} id="f5"></div>
+            <div onClick={() => handleClick('g5')} id="g5"></div>
           </div>
           <button onClick={startGame}>start</button>
         </div>
