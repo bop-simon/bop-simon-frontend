@@ -5,6 +5,9 @@ import UserForm from "../../components/Auth/UserForm/UserForm.jsx";
 import { useUser } from "../../context/UserContext.jsx";
 import { logIn, signUp } from "../../services/auth.js";
 import styles from './auth.css'
+///when we submit our username/password on login or signup
+///the message signed in sucessfully is set as the user in context
+///if we hardcode the home view 
 
 
 export default function Auth() {
@@ -45,7 +48,6 @@ export default function Auth() {
     } 
   
   const handleLogin = async () => {
-    console.log("Form Data - handleSubmit", formData)
     const { username, password } = formData
 
     if(username.length < 2) {
@@ -56,7 +58,6 @@ export default function Auth() {
     }
 
       try {
-        console.log('trying to login')
         const user = await logIn(username, password)
         setUser(user)
         console.log('login successful')
