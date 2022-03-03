@@ -1,6 +1,8 @@
 import * as Tone from 'tone'
 import styles from './freeplay.module.css'
 import { useState } from 'react'
+import { useUser } from '../../context/UserContext'
+const { user } = useUser()
 import { getAllUserSongs, postUserSong } from '../../services/songs'
 
 const synthSounds = {
@@ -48,9 +50,21 @@ export default function Game() {
     setIsRecording(false)
 
     setFavSong(notesArray)
+    if (notesArray.length === 0) {
+      alert('song must contain notes to save')
+      return
+    }
+
+    await postUserSong(notesArray)
+
+    setFavSong(notesArray)
     await postUserSong(notesArray)
   }
 
+  const playUserSong = async () => {
+    const userSongs = await getAllUserSongs()
+    console.log(userSongs)
+  }
   // const playUserSong = async () => {
   //   const userSongs = await getAllUserSongs();
 
@@ -257,6 +271,7 @@ export default function Game() {
           </div>
           <button onClick={startRecording}>Record</button>
           <button onClick={stopRecording}>Stop</button>
+          <button onClick={playUserSong}>Play</button>
           {/* <button onClick={playUserSong}>Play</button> */}
         </div>
       </div>
