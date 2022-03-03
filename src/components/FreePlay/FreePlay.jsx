@@ -1,8 +1,6 @@
 import * as Tone from 'tone'
 import styles from './freeplay.module.css'
 import { useState } from 'react'
-import { useUser } from '../../context/UserContext'
-const { user } = useUser()
 import { getAllUserSongs, postUserSong } from '../../services/songs'
 
 const synthSounds = {
@@ -31,7 +29,7 @@ function playNote(note) {
   }, 1000)
 }
 
-export default function Game() {
+export default function FreePlay() {
   const [isRecording, setIsRecording] = useState(false)
   const [favSong, setFavSong] = useState([])
 
