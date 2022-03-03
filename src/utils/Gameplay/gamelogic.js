@@ -14,18 +14,18 @@ export function getRandomNote(){
 }
 //level 1 = 5 notes
 //currentSong.length = level * 5
+
 export function getCurrentSong(level){
     let currentSong = []
     const songLength = level * 5
-    
-    for(let i=0; i < songLength; i++){
-    const note = getRandomNote()
-    currentSong.push(note)
+    let i=0;
 
-    while(i < songLength){
-        currentSong.push(note)
-        }
-    }
+ while (i < songLength){
+   const note = getRandomNote()
+   currentSong.push(note)
+   i++;
+ }
+ return currentSong
 }
 
-console.log('soooong', getCurrentSong(2))
+
