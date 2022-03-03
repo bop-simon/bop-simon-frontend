@@ -2,7 +2,7 @@ import MenuBar from '../../components/MenuBar/MenuBar'
 import styles from './leaderboard.module.css'
 import { useState, useEffect } from 'react'
 import LeaderList from '../../components/LeaderList/LeaderList'
-import { fetchHighScores } from '../../services/fetch'
+import { getByHighScore } from '../../services/user'
 
 export default function Leaderboard() {
   const [scoreLeaders, setScoreLeaders] = useState([])
@@ -10,7 +10,7 @@ export default function Leaderboard() {
 
   useEffect(() => {
     const getLeaderBoard = async () => {
-      const leaders = await fetchHighScores()
+      const leaders = await getByHighScore()
       setScoreLeaders(leaders)
       setIsLoading(false)
     }
