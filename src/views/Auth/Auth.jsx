@@ -4,6 +4,7 @@ import AuthQuestion from "../../components/Auth/AuthQuestion/AuthQuestion.jsx";
 import UserForm from "../../components/Auth/UserForm/UserForm.jsx";
 import { useUser } from "../../context/UserContext.jsx";
 import { logIn, signUp } from "../../services/auth.js";
+import { getCurrentUser, getUserById } from "../../services/user.js";
 import styles from './auth.css'
 ///when we submit our username/password on login or signup
 ///the message signed in sucessfully is set as the user in context
@@ -37,7 +38,8 @@ export default function Auth() {
     try {
         console.log('trying to sign up')
         await signUp(username, password)
-        let user = await logIn(username, password)
+        await logIn(username, password)
+        const user = await getCurrentUser()
         console.log('auth user', user)
         await setUser(user)
         console.log('sign up and login successful')
@@ -58,9 +60,9 @@ export default function Auth() {
     }
 
       try {
-        const user = await logIn(username, password)
+        await logIn(username, password)
+        const user = await getCurrentUser()
         await setUser(user)
-        // postProfile({ user.id, score, bio})
         console.log('login successful')
         navigate('/home')
       } catch (error) {
