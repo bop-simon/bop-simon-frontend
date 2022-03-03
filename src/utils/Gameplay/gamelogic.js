@@ -27,5 +27,3 @@ export function getRandomNote() {
 //         }
 //     }
 // }
-
-console.log('soooong', getCurrentSong(2))
