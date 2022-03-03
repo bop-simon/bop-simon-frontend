@@ -4,6 +4,11 @@ import Home from './Home'
 import React from 'react'
 import * as Tone from 'tone'
 
+it('confirms that we are cool', () => {
+  const us = 'cool'
+  expect(us).toEqual('cool')
+})
+
 jest.mock('tone', () => {
   return {
     Synth: jest.fn().mockImplementation(function () {
