@@ -1,6 +1,7 @@
 import * as Tone from 'tone'
 import styles from './game.module.css'
 import { Link } from 'react-router-dom'
+import { randomNumber } from '../../utils/Gameplay/gamelogic'
 
 let userHistory = []
 
@@ -16,7 +17,7 @@ const synthSounds = {
   }
 }
 const limiter = new Tone.Limiter(-2)
-const synth = new Tone.Synth(synthSounds).chain(limiter, Tone.Master)
+const synth = new Tone.Synth(synthSounds).chain(limiter).toDestination()
 
 function playNote(note) {
   const element = document.getElementById(note)
@@ -29,7 +30,6 @@ function playNote(note) {
     element.style.borderRadius = '0px'
   }, 1000)
 }
-// CPU turn: songArray.push >> nowPlayingArray >> loop thru nowPlayingArray, for each note: playNote(note)
 
 export default function Game() {
   return (
@@ -47,7 +47,7 @@ export default function Game() {
             A = Bop Simon Green
             B = Bop Simon Blue 
             */}
-            <div onClick={() => playNote('c2')} id="c2"></div>
+            <div onClick={() => playNote('c2')} id="c2" aria-label="c2"></div>
             <div onClick={() => playNote('d2')} id="d2"></div>
             <div onClick={() => playNote('e2')} id="e2"></div>
             <div onClick={() => playNote('f2')} id="f2"></div>

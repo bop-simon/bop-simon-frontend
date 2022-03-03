@@ -1,36 +1,32 @@
 import MenuBar from '../../components/MenuBar/MenuBar'
-import styles from './leaderboard.css'
+import styles from './leaderboard.module.css'
 import { useState, useEffect } from 'react'
-import LeaderList from '../../components/LeaderList/LeaderList';
-import { getByHighScore } from '../../services/user';
+import LeaderList from '../../components/LeaderList/LeaderList'
+import { getByHighScore } from '../../services/user'
 
 export default function Leaderboard() {
-  const [scoreLeaders, setScoreLeaders] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [scoreLeaders, setScoreLeaders] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const getLeaderBoard = async () => {
-      const leaders = await getByHighScore();
-      setScoreLeaders(leaders);
-      setIsLoading(false);
+      const leaders = await getByHighScore()
+      setScoreLeaders(leaders)
+      setIsLoading(false)
     }
-    getLeaderBoard();
-  }, []);
+    getLeaderBoard()
+  }, [])
 
   return (
-    <>
+    <section className={styles.leaderWrapper}>
       <MenuBar />
       <section className={styles.leaderCard}>
-        {/* <ol>
-          <h2>Rankings</h2>
-          <li>Bop Simon | 28</li>
-          <li>Taylor | 27 </li>
-          <li>sillyg00se | 20</li>
-          <li>Your Acutal Dad | 20</li>
-        </ol> */}
-        {isLoading ? <h1>Loading...</h1> : (<LeaderList leaders={scoreLeaders} />)}
+        {isLoading ? (
+          <h1>Loading...</h1>
+        ) : (
+          <LeaderList leaders={scoreLeaders} />
+        )}
       </section>
-    </>
+    </section>
   )
 }
-//
