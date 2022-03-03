@@ -10,7 +10,7 @@ const userLevel = 2
 const [currentSong, setCurrentSong] = useState()
 let playerHistory = []
 let cpuHistory = []
-setCurrentSong(getCurrentSong(userLevel))
+// setCurrentSong(getCurrentSong(userLevel))
 
 const synthSounds = {
   oscillator: {
@@ -51,13 +51,13 @@ const handleClick = (note) =>{
   playerHistory.push(note)
 }
 
-useEffect(() => {
-  if(playerHistory !== cpuHistory){
-      return gameOver()
-  } else {
-      return startGame()
-  }
-}, [playerHistory])
+// useEffect(() => {
+//   if(playerHistory !== cpuHistory){
+//       return gameOver()
+//   } else {
+//       return startGame()
+//   }
+// }, [playerHistory])
 
 
   return (
