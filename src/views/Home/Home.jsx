@@ -1,19 +1,17 @@
-import Game from '../../components/Game/Game'
-import FreePlay from '../../components/FreePlay/FreePlay'
 import { useState } from 'react'
 import { FormControlLabel, FormGroup, Switch } from '@mui/material'
 import { MusicNote } from '@mui/icons-material'
 import { Button } from '@mui/material'
-import Popup from '../../components/Popup/Popup.jsx'
-import styles from './home.css'
 import { useUser } from '../../context/UserContext.jsx'
+import Popup from '../../components/Popup/Popup.jsx'
+import Game from '../../components/Game/Game'
+import FreePlay from '../../components/FreePlay/FreePlay'
+import styles from './home.css'
 import MenuBar from '../../components/MenuBar/MenuBar.jsx'
 
 export default function Home() {
   const [toggleTutorial, setToggleTutorial] = useState(false)
   const [gamePlay, setGamePlay] = useState(true)
-
-  const { loading } = useUser()
 
   const handleChange = (event) => {
     setGamePlay(event.target.checked)
@@ -25,11 +23,7 @@ export default function Home() {
   return (
     <main className={styles.home}>
       <MenuBar />
-      {
-        // loading ?
-        // <h1>loading</h1> :
-        // 'load all the cool stuff'
-      }
+      
       <div className={styles.controls}>
         {!toggleTutorial ? 
         <>

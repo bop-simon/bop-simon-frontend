@@ -9,8 +9,6 @@ import { getCurrentUser } from '../../services/user.js'
 export default function FreePlay() {
   const [isRecording, setIsRecording] = useState(false)
   const [favSong, setFavSong] = useState([])
-  const [userSongs, setUserSongs] = useState([])
-  console.log(userSongs)
 
   let notesArray = [] 
 
@@ -82,14 +80,6 @@ export default function FreePlay() {
     Tone.Transport.start("+0.1");
 }
 
-  useEffect(() => {
-    const currentUser = getCurrentUser()
-      if (currentUser.username) {
-          const userSongs = getAllUserSongs()
-          setUserSongs(userSongs)
-      }
-  }, [isRecording])
-
   return (
     <section className={styles.gameMain}>
       <div className={styles.App}>
@@ -99,12 +89,7 @@ export default function FreePlay() {
             isRecording ?
             <Button onClick={stopRecording}>Stop</Button> :
             ''
-          }
-          {// need to conditionally render button to only appear if the user has songs to play (and needs to appear in a list of the users songs)
-         /* <button onClick={playUserSong}>Play</button> */
-         }
-          <Button onClick={playUserSong}>Play</Button>
-          
+          }        
         </div>
         <div className={styles.main}>
           <div className={styles.container}>
