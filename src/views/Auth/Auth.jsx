@@ -6,6 +6,7 @@ import { useUser } from "../../context/UserContext.jsx";
 import { logIn, signUp } from "../../services/auth.js";
 import styles from './auth.css'
 
+
 export default function Auth() {
   const navigate = useNavigate()
   const { setUser } = useUser();
@@ -34,6 +35,7 @@ export default function Auth() {
         console.log('trying to sign up')
         await signUp(username, password)
         let user = await logIn(username, password)
+        console.log('auth user', user)
         setUser(user)
         console.log('sign up and login successful')
         navigate('/home')
@@ -60,6 +62,7 @@ export default function Auth() {
         console.log('login successful')
         navigate('/home')
       } catch (error) {
+        //figure out why catch isn't working when trying to login with a username that doesn't exist
         setFormError(error)
       }
   }
