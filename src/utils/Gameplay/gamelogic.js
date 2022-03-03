@@ -1,5 +1,5 @@
 function randomNumber() {
-  return Math.floor(Math.random() * (6 - 1 + 1)) + 1
+  return Math.floor(Math.random() * 6 ) + 2
 }
 
 function randomLetter() {
@@ -15,13 +15,11 @@ export function getRandomNote() {
 
 export function getCurrentSong(level){
     let currentSong = []
-    const songLength = level * 5
+    const songLength = (level * 5) + 2 
     for (let i = 0; i < songLength; i++){
       const note = getRandomNote()
       currentSong.push(note)
     }
-
- console.log('==========', currentSong)
  return currentSong
 }
 

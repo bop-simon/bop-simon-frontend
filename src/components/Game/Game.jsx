@@ -2,16 +2,22 @@ import * as Tone from 'tone'
 import styles from './game.module.css'
 import { useState } from 'react'
 import { getCurrentSong } from '../../utils/Gameplay/gamelogic'
+import { useUser } from '../../context/UserContext'
 
 export default function Game() {
-  //set the level in UserContext to grab it later
-  // const {user, setUser, userLevel, setUserLevel}= useUser()
+  const { user, setUser } = useUser()
+
+  let userLevel = user.score / 5 + 1
+  // const userLevel = user.score / 5
+  // user level
+  // level up
+  // game over
 
   let currentTurnNotes = []
   let cpuHistory = []
   let turnNumber = 1
-  const currentSong = ['c2', 'c3', 'c4']
-  let turnTimeout, nextTurnTimeout;
+  const currentSong = getCurrentSong(userLevel)
+  let turnTimeout, nextTurnTimeout
 
   const synthSounds = {
     oscillator: {
@@ -29,24 +35,24 @@ export default function Game() {
 
   function gameOver() {
     cpuHistory = []
+    currentTurnNotes = []
+    turnNumber = 1
     alert('you lose')
   }
 
   function startGame() {
-    console.log('>>>>>>>>>>>>>>>>> new turn <<<<<<<<<<<<<<,')
+    console.log('>>>>>>>>>>>>>>>>> new turn (cpu) <<<<<<<<<<<<<<,')
     currentTurnNotes = []
     for (let i = 0; i < turnNumber; i++) {
       const note = currentSong[i]
       setTimeout(() => {
         playNote(note)
       }, i * 1000)
-      // push last note played
       if (i === cpuHistory.length) {
         cpuHistory.push(note)
       }
       console.log('cpu history', cpuHistory)
     }
-
   }
 
   const handleClick = (note) => {
@@ -57,19 +63,31 @@ export default function Game() {
     currentTurnNotes.push(note)
     let wrongNote = false
     console.log('currentTurnNotes', currentTurnNotes)
-    turnTimeout =  setTimeout(() => {
+    turnTimeout = setTimeout(() => {
       for (let i = 0; i < cpuHistory.length; i++) {
-        console.log('currentTurnNotes[i]', currentTurnNotes[i], 'cpuHistory', cpuHistory[i])
-        console.log('i', i, 'current turn notes', currentTurnNotes, cpuHistory, '< cpu history')
+        console.log(
+          'currentTurnNotes[i]',
+          currentTurnNotes[i],
+          'cpuHistory',
+          cpuHistory[i]
+        )
+        console.log(
+          'i',
+          i,
+          'current turn notes',
+          currentTurnNotes,
+          cpuHistory,
+          '< cpu history'
+        )
         if (cpuHistory[i] !== currentTurnNotes[i]) {
           wrongNote = true
         }
       }
       if (wrongNote) {
-        gameOver()
+        return gameOver()
       }
     }, 1500)
-  nextTurnTimeout = setTimeout(() => {
+    nextTurnTimeout = setTimeout(() => {
       turnNumber++
       startGame()
     }, 1500)
@@ -93,20 +111,7 @@ export default function Game() {
         <div className={styles.main}>
           <p>This is the Game Play Board</p>
           <div className={styles.container}>
-            {/* 
-            C = Pink 
-            D = Yellow 
-            E = Grey 
-            F = Purple x 1,000 
-            G = Tuscany 
-            A = Bop Simon Green
-            B = Bop Simon Blue 
-            */}
-            <div
-              onClick={() => handleClick('c2')}
-              id="c2"
-              aria-label="c2"
-            ></div>
+            <div onClick={() => handleClick('c2')} id="c2" aria-label="c2"></div>
             <div onClick={() => handleClick('d2')} id="d2"></div>
             <div onClick={() => handleClick('e2')} id="e2"></div>
             <div onClick={() => handleClick('f2')} id="f2"></div>
