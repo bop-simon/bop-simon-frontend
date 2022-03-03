@@ -19,6 +19,7 @@ export async function getUserById(id) {
 }
 
 export async function getCurrentUser() {
+  console.log('hello from users.js')
   const response = await request.get(`${process.env.PROD_URL}/users/currentuser`).withCredentials()
 
   console.log("current user response", response.body)

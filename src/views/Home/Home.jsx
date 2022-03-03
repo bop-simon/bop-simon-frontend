@@ -7,11 +7,14 @@ import { MusicNote } from '@mui/icons-material'
 import { Button } from "@mui/material"
 import Popup from '../../components/Popup/Popup.jsx'
 import styles from './home.css'
+import { useUser } from '../../context/UserContext.jsx'
 
 export default function Home() {
 
   const [toggleTutorial, setToggleTutorial] = useState(false)
   const [gamePlay, setGamePlay] = useState(true)
+
+  const { loading } = useUser()
 
   const handleChange = (event) => {
     setGamePlay(event.target.checked)
@@ -24,6 +27,11 @@ export default function Home() {
   return (
     <main className={styles.home}>
       <MenuBar />
+      {
+        // loading ?
+        // <h1>loading</h1> :
+        // 'load all the cool stuff'
+      }
       <div className={styles.controls}>
         {
         !toggleTutorial ?

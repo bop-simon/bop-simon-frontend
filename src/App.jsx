@@ -7,7 +7,7 @@ import About from './views/About/About'
 import Profile from './views/Profile/Profile'
 import Theme from './context/Theme.js'
 import Auth from './views/Auth/Auth.jsx'
-// import PrivateRoute from './components/PrivateRoute.jsx'
+import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx'
 import { UserProvider } from './context/UserContext.jsx'
 
 
@@ -19,7 +19,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Splash />} />
             <Route path="auth" element={<Auth />} />
-            <Route path="home" element={<Home />} />
+            <Route path="home" element={ <PrivateRoute children={<Home />}/> } />
             <Route path="leaderboard" element={<Leaderboard />} />
             <Route path="about" element={<About />} />
             <Route path="profile" element={<Profile />} />
