@@ -46,7 +46,7 @@ export default function About() {
           />
           <h2>Katie</h2>
           <br></br>
-          <p>Meow. Tuxedo cats always looking dapper hunt anything that moves, but grass smells good playing with balls of wool attack feet, yet chase ball of string. <a className={styles.link} href='https://www.linkedin.com/in/k-schrattenholzer/'>LinkedIn</a> // <a className={styles.link} href='https://github.com/k-schrattenholzer'>Github</a></p>
+          <p>Full Stack Software Engineer || Lover of Bops <a className={styles.link} href='https://www.linkedin.com/in/k-schrattenholzer/'>LinkedIn</a> // <a className={styles.link} href='https://github.com/k-schrattenholzer'>Github</a></p>
           </div>
          <br></br>
           <div className={styles.team}>
