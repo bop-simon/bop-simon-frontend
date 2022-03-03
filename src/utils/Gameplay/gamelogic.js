@@ -1,5 +1,5 @@
 function randomNumber() {
-  return Math.floor(Math.random() * (5 - 1 + 1)) + 1
+  return Math.floor(Math.random() * (6 - 1 + 1)) + 1
 }
 
 function randomLetter() {
@@ -14,14 +14,14 @@ export function getRandomNote() {
 }
 
 export function getCurrentSong(level){
-//     let currentSong = []
-//     const songLength = level * 5
-//     let i=0;
-// //  while (i < songLength){
-// //    const note = getRandomNote()
-// //    currentSong.push(note)
-// //    i++;
-//  }
-//  console.log('this is a song', currentSong)
-//  return currentSong
+    let currentSong = []
+    const songLength = level * 5
+    for (let i = 0; i < songLength; i++){
+      const note = getRandomNote()
+      currentSong.push(note)
+    }
+
+ console.log('==========', currentSong)
+ return currentSong
 }
+
