@@ -54,7 +54,7 @@ export default function FreePlay() {
       alert('song must contain notes to save')
       return
     }
-    window.alert('recording finished, check profile for saved recordings')
+    window.alert('Your song has been saved! I guess.')
 
     await postUserSong(notesArray)
 
