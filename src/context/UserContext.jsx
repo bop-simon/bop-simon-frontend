@@ -1,4 +1,5 @@
 import { useContext, useEffect, useMemo, createContext, useState } from "react";
+import { getAllProfiles, getProfileById } from "../services/profile";
 import { getCurrentUser} from "../services/user";
 
 const UserContext = createContext()
@@ -6,20 +7,26 @@ const UserContext = createContext()
 const UserProvider = ({children}) =>{
     const [user, setUser] = useState({});
     const [loading, setLoading] = useState(true)
-    console.log('USER IN CONTEXT', user)
 
     useEffect(() => {
       const fetchCurrentUser = async() => {
-        console.log('hey hi helooooooo')
-        const currentUser = await getCurrentUser()
-        console.log("current user", currentUser)
-        if (currentUser.username) {
-          setUser(currentUser)
-        } else {
-          setUser({})
+      try {
+          const currentUser = await getCurrentUser()
+      
+          if (currentUser.username) {
+            setUser(currentUser)
+            // setLoading(false)
+          } else {
+            setUser({})
+            // setLoading(false)
+          }
+        } catch(e) {
+          console.log(e.message)
+        } finally {
+          setLoading(false)
         }
-        setLoading(false)
       } 
+ 
       fetchCurrentUser()
     }, [])
 
