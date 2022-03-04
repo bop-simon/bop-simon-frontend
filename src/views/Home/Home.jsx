@@ -2,12 +2,11 @@ import { useState } from 'react'
 import { FormControlLabel, FormGroup, Switch } from '@mui/material'
 import { MusicNote } from '@mui/icons-material'
 import { Button } from '@mui/material'
-import { useUser } from '../../context/UserContext.jsx'
 import Popup from '../../components/Popup/Popup.jsx'
 import Game from '../../components/Game/Game'
 import FreePlay from '../../components/FreePlay/FreePlay'
-import styles from './home.css'
 import MenuBar from '../../components/MenuBar/MenuBar.jsx'
+import styles from './home.module.css'
 
 export default function Home() {
   const [toggleTutorial, setToggleTutorial] = useState(false)
@@ -16,33 +15,32 @@ export default function Home() {
   const handleChange = (event) => {
     setGamePlay(event.target.checked)
   }
-
   const open = () => setToggleTutorial(true)
   const close = () => setToggleTutorial(false)
 
   return (
     <main className={styles.home}>
       <MenuBar />
-      
       <div className={styles.controls}>
-        {!toggleTutorial ? 
-        <>
-        <FormGroup sx={{ display: 'block' }}>
-          <FormControlLabel
-            control={
-              <Switch
-                checked={gamePlay}
-                onChange={handleChange}
-                aria-label="play mode switch"
+        {!toggleTutorial ? (
+          <>
+            <FormGroup sx={{ display: 'block' }}>
+              <FormControlLabel
+                control={
+                  <Switch
+                    checked={gamePlay}
+                    onChange={handleChange}
+                    aria-label="play mode switch"
+                  />
+                }
+                label={gamePlay ? 'Game Mode' : 'Free Play'}
               />
-            }
-            label={gamePlay ? 'Game Mode' : 'Free Play'}
-          />
-        </FormGroup>
-        <Button onClick={open}>instructions</Button>
-        </>
-        :
-         ''}
+            </FormGroup>
+            <Button onClick={open}>instructions</Button>
+          </>
+        ) : (
+          ''
+        )}
       </div>
       {toggleTutorial ? (
         <Popup
@@ -65,7 +63,6 @@ export default function Home() {
       ) : (
         <>{gamePlay ? <Game /> : <FreePlay />}</>
       )}
-
     </main>
   )
 }

@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import MenuBar from '../../components/MenuBar/MenuBar'
-import { useUser } from '../../context/UserContext'
-import styles from './profile.css'
-import triangle from '../../assets/triangle.png'
-import { editsProfile } from '../../services/profile'
-import { TextField, Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-
+import { useUser } from '../../context/UserContext'
+import { TextField, Button } from '@mui/material'
+import { editsProfile } from '../../services/profile'
+import MenuBar from '../../components/MenuBar/MenuBar'
+import styles from './profile.module.css'
+import triangle from '../../assets/triangle.png'
 
 export default function About() {
 
@@ -15,8 +14,6 @@ export default function About() {
    const navigate = useNavigate()
 
    const {user, setUser}= useUser()
-   console.log('uuuser', user)
-  
 
    const handleUpdateBio = async() => {
        editsProfile({bio: updateBio, score: user.score})
@@ -31,9 +28,6 @@ export default function About() {
   const handleChange = (e) => {
     setUpdateBio(e.target.value)
   }
-  //if there is a bio, display bio, if there is no bio, it will display nothing, on save it will save the bio
-
-  //implement getAllUser songs and display all user songs and a way to click the songs
 
   return (
     <div className={styles.profile}>

@@ -87,3 +87,8 @@
 button:active {
   background-color: aqua;
 }
+
+.desaturate {
+ color: red;
+ outline: 3px solid red;
+}

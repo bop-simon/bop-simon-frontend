@@ -3,6 +3,7 @@
 body {
   overflow: none;
 }
+
 .leaderWrapper {
   width: 95vw;
   padding: 2vw;
@@ -11,6 +12,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .leaderCard {
   display: flex;
   justify-content: center;
