@@ -11,14 +11,23 @@ const UserProvider = ({children}) =>{
 
     useEffect(() => {
       const fetchCurrentUser = async() => {
-        const currentUser = await getCurrentUser()
-        if (currentUser.username) {
-          setUser(currentUser)
-        } else {
-          setUser({})
+      try {
+          const currentUser = await getCurrentUser()
+      
+          if (currentUser.username) {
+            setUser(currentUser)
+            // setLoading(false)
+          } else {
+            setUser({})
+            // setLoading(false)
+          }
+        } catch(e) {
+          console.log(e.message)
+        } finally {
+          setLoading(false)
         }
-        setLoading(false)
       } 
+ 
       fetchCurrentUser()
     }, [])
 
