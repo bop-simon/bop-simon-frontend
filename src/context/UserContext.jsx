@@ -1,4 +1,5 @@
 import { useContext, useEffect, useMemo, createContext, useState } from 'react'
+import { getAllUserSongs } from '../services/songs.js'
 import { getCurrentUser } from '../services/user'
 
 const UserContext = createContext()
@@ -12,9 +13,10 @@ const UserProvider = ({ children }) => {
     const fetchCurrentUser = async () => {
       try {
         const currentUser = await getCurrentUser()
+        const userSongs = await getAllUserSongs()
 
         if (currentUser.username) {
-          setUser({ ...currentUser, score: +currentUser.score })
+          setUser({ ...currentUser, score: +currentUser.score, songs: userSongs })
         } else {
           setUser({})
         }

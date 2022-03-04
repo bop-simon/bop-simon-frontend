@@ -1,12 +1,17 @@
 import * as Tone from 'tone'
 import styles from './freeplay.module.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { postUserSong } from '../../services/songs'
 import { Button } from '@mui/material'
+import { useUser } from '../../context/UserContext.jsx'
+import { Navigate, useNavigate } from 'react-router-dom'
 
-export default function FreePlay() {
+export default function FreePlay({ notes, playing, setPlaying }) {
   const [isRecording, setIsRecording] = useState(false)
   const [favSong, setFavSong] = useState([])
+
+  const { user, setUser } = useUser()
+  const navigate = useNavigate()
 
   let notesArray = []
 
@@ -23,6 +28,14 @@ export default function FreePlay() {
   }
   const limiter = new Tone.Limiter(-2)
   const synth = new Tone.Synth(synthSounds).chain(limiter).toDestination()
+
+  useEffect(() => {
+    notes.map((note, i) => {
+      setTimeout(() => {
+        playNote(note)
+      }, i * 1000)
+    })
+  },[])
 
   function playNote(note) {
     const element = document.getElementById(note)
@@ -51,14 +64,19 @@ export default function FreePlay() {
       alert('song must contain notes to save')
       return
     }
-    window.alert('Your song has been saved! I')
-    await postUserSong(notesArray)
-    setFavSong(notesArray)
-    await postUserSong(notesArray)
+    window.alert('Your song has been saved!')
+   const postedUserSong = await postUserSong(notesArray)
+    console.log(postedUserSong)
+    setUser({...user, songs:[...user.songs, {notes: notesArray, id: postedUserSong.id}]})
   }
 
   const playUserSong = async (song) => {
     playInterval(song)
+  }
+
+  const handleReturnToFreePlay = () => {
+    setPlaying(false)
+    navigate('/home')
   }
 
   function playInterval(notes) {
@@ -84,8 +102,15 @@ export default function FreePlay() {
     <section className={styles.gameMain}>
       <div className={styles.App}>
         <div className={styles.controlsRecord}>
-          <Button onClick={startRecording}>Record</Button>
-          {isRecording ? <Button onClick={stopRecording}>Stop</Button> : ''}
+          { !playing ?
+            <>
+            {isRecording ? <Button onClick={stopRecording}>Stop</Button> : 
+            <Button onClick={startRecording}>
+                Record</Button>}
+            </>
+              :
+              <Button onClick={handleReturnToFreePlay}>Record Again?</Button>          }
+
         </div>
         <div className={styles.main}>
           <div className={styles.container}>
