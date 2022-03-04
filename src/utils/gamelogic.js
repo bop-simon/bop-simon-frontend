@@ -17,6 +17,7 @@ export function getRandomNote() {
 export function getCurrentSong(level){
     let currentSong = []
     const songLength = (level) + 2
+    // shortened song length for development:
     // const songLength = 2
     for (let i = 0; i < songLength; i++){
       const note = getRandomNote()

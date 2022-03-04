@@ -7,10 +7,6 @@
   margin-right: 2.5vw;
 }
 
-/* .iconC {
-  
-} */
-
 .accountIcon {
   height: 4.4vw;
 }
@@ -21,6 +17,13 @@
   box-shadow: 0 0 50px #FF5C8A ;
   border-radius: 2em; 
 }
-.iconC {
-  
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: #A51FFF;
+}
+
+a:hover {
+  color:#3BC06F
 }

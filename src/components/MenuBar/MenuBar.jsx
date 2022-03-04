@@ -1,16 +1,9 @@
 import styles from '../../App.css'
-import { useState } from 'react'
 import UserMenu from './UserMenu'
 import HamburgerMenu from './HamburgerMenu'
-import {
-  AppBar,
-  Typography,
-  Toolbar,
-  Box
-} from '@mui/material'
+import { AppBar, Typography, Toolbar, Box } from '@mui/material'
 
 export default function MenuBar() {
-
   const handleChange = (event) => {
     setAuth(event.target.checked)
   }
