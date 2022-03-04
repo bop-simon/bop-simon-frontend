@@ -66,13 +66,12 @@ export default function Profile() {
                 onClick={toggleEdit}>Update Your Bio</Button>
             </div>
         }
-        <ul className={styles.userSongs}>
-        my songs
+        <ul className={styles.userSongs}><h2>My Favorite Songs</h2>
           {
             user?.songs?.map((song) => {
             return <li key={song.id}>
-            <p>song# {song.id}</p>
-            <Button onClick={() => handlePlaySong(song.id)}>play me</Button>
+            <p>🎵 song #{song.id}</p>
+            <Button variant="outlined" onClick={() => handlePlaySong(song.id)}>play me</Button>
             </li>
             })
           }
