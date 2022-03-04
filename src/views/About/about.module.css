@@ -34,8 +34,7 @@
   line-height: normal;
 }
 
-.aboutCard a:link,
-a:visited {
+.link {
   text-decoration: none;
   color: #fcd116;
 }

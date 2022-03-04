@@ -30,11 +30,11 @@ html {
 a:link,
 a:visited {
   text-decoration: none;
-  color: #333;
+  color: #A51FFF;
 }
 
 a:hover {
-  color:#009fb7
+  color:#3BC06F
 }
 
 .splash {
