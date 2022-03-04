@@ -3,20 +3,18 @@ import styles from './game.module.css'
 import { useState } from 'react'
 import { getCurrentSong } from '../../utils/Gameplay/gamelogic'
 import { useUser } from '../../context/UserContext'
+import { updateScore } from '../../services/user'
 
 export default function Game() {
   const { user, setUser } = useUser()
 
   let userLevel = user.score / 5 + 1
-  // const userLevel = user.score / 5
-  // user level
-  // level up
-  // game over
 
   let currentTurnNotes = []
   let cpuHistory = []
   let turnNumber = 1
-  const currentSong = getCurrentSong(userLevel)
+  let currentSong = getCurrentSong(userLevel)
+  console.log(currentSong, 'current song')
   let turnTimeout, nextTurnTimeout
 
   const synthSounds = {
@@ -35,14 +33,21 @@ export default function Game() {
 
   function gameOver() {
     cpuHistory = []
-    currentTurnNotes = []
     turnNumber = 1
+    currentSong = getCurrentSong(userLevel)
+    console.log(currentSong, 'loser')
     alert('you lose')
+  }
+
+  function levelUp(user) {
+    updateScore(user.id, user.score)
+    alert(`Yaas! You leveled up! Your level is now ${user.score}`)
   }
 
   function startGame() {
     console.log('>>>>>>>>>>>>>>>>> new turn (cpu) <<<<<<<<<<<<<<,')
     currentTurnNotes = []
+    console.log('hello')
     for (let i = 0; i < turnNumber; i++) {
       const note = currentSong[i]
       setTimeout(() => {
@@ -51,47 +56,44 @@ export default function Game() {
       if (i === cpuHistory.length) {
         cpuHistory.push(note)
       }
-      console.log('cpu history', cpuHistory)
+      console.log('cpu history', cpuHistory, 'current song', currentSong)
     }
   }
 
   const handleClick = (note) => {
-    console.log('>>>>>new click<<<')
+    console.log('>>>>>new click (user)<<<')
     clearTimeout(turnTimeout)
     clearTimeout(nextTurnTimeout)
     playNote(note)
     currentTurnNotes.push(note)
     let wrongNote = false
-    console.log('currentTurnNotes', currentTurnNotes)
+
     turnTimeout = setTimeout(() => {
       for (let i = 0; i < cpuHistory.length; i++) {
-        console.log(
-          'currentTurnNotes[i]',
-          currentTurnNotes[i],
-          'cpuHistory',
-          cpuHistory[i]
-        )
-        console.log(
-          'i',
-          i,
-          'current turn notes',
-          currentTurnNotes,
-          cpuHistory,
-          '< cpu history'
-        )
         if (cpuHistory[i] !== currentTurnNotes[i]) {
           wrongNote = true
         }
       }
       if (wrongNote) {
-        return gameOver()
+        clearTimeout(turnTimeout)
+        clearTimeout(nextTurnTimeout)
+        gameOver()
+        // Stop playing!!
+        // user.score + 5
       }
     }, 1500)
+
     nextTurnTimeout = setTimeout(() => {
       turnNumber++
       startGame()
     }, 1500)
   }
+
+// function winRound() {
+ // if (currentTurnNotes === currentSong){
+  // levelUp(user)
+ //}
+//}
 
   function playNote(note) {
     const element = document.getElementById(note)
@@ -111,7 +113,11 @@ export default function Game() {
         <div className={styles.main}>
           <p>This is the Game Play Board</p>
           <div className={styles.container}>
-            <div onClick={() => handleClick('c2')} id="c2" aria-label="c2"></div>
+            <div
+              onClick={() => handleClick('c2')}
+              id="c2"
+              aria-label="c2"
+            ></div>
             <div onClick={() => handleClick('d2')} id="d2"></div>
             <div onClick={() => handleClick('e2')} id="e2"></div>
             <div onClick={() => handleClick('f2')} id="f2"></div>
@@ -137,6 +143,15 @@ export default function Game() {
             <div onClick={() => handleClick('e5')} id="e5"></div>
             <div onClick={() => handleClick('f5')} id="f5"></div>
             <div onClick={() => handleClick('g5')} id="g5"></div>
+            <div onClick={() => handleClick('a5')} id="a5"></div>
+            <div onClick={() => handleClick('b5')} id="b5"></div>
+            <div onClick={() => handleClick('c6')} id="c6"></div>
+            <div onClick={() => handleClick('d6')} id="d6"></div>
+            <div onClick={() => handleClick('e6')} id="e6"></div>
+            <div onClick={() => handleClick('f6')} id="f6"></div>
+            <div onClick={() => handleClick('g6')} id="g6"></div>
+            <div onClick={() => handleClick('a6')} id="a6"></div>
+            <div onClick={() => handleClick('b6')} id="b6"></div>
           </div>
           <button onClick={startGame}>start</button>
         </div>

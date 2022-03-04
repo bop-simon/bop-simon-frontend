@@ -1,5 +1,6 @@
 function randomNumber() {
-  return Math.floor(Math.random() * 6 ) + 2
+  const numbers ='23456'
+  return numbers[Math.floor(Math.random() * numbers.length)]
 }
 
 function randomLetter() {
