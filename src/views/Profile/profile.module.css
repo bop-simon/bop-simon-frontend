@@ -46,6 +46,7 @@
   flex-direction: column;
   justify-content: center;
 }
+
 .editPass >* {
   margin: 2px;  
 }

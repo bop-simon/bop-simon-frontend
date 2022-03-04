@@ -1,6 +1,6 @@
 import * as Tone from 'tone'
 import styles from './game.module.css'
-import { getCurrentSong } from '../../utils/Gameplay/gamelogic'
+import { getCurrentSong } from '../../utils/gamelogic'
 import { useUser } from '../../context/UserContext'
 import { editsProfile } from '../../services/profile'
 
@@ -137,7 +137,11 @@ export default function Game() {
             <div onClick={() => handleClick('g1')} id="g1"></div>
             <div onClick={() => handleClick('a1')} id="a1"></div>
             <div onClick={() => handleClick('b1')} id="b1"></div>
-            <div onClick={() => handleClick('c2')} id="c2" aria-label="c2"></div>
+            <div
+              onClick={() => handleClick('c2')}
+              id="c2"
+              aria-label="c2"
+            ></div>
             <div onClick={() => handleClick('d2')} id="d2"></div>
             <div onClick={() => handleClick('e2')} id="e2"></div>
             <div onClick={() => handleClick('f2')} id="f2"></div>

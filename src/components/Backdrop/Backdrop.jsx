@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { motion } from 'framer-motion'
 import styles from './backdrop.module.css'
 
 export default function Backdrop({ children, onClick }) {
@@ -9,7 +9,7 @@ export default function Backdrop({ children, onClick }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      >
+    >
       {children}
     </motion.div>
   )

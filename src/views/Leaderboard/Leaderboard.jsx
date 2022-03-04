@@ -1,8 +1,8 @@
-import MenuBar from '../../components/MenuBar/MenuBar'
-import styles from './leaderboard.module.css'
 import { useState, useEffect } from 'react'
-import LeaderList from '../../components/LeaderList/LeaderList'
 import { getByHighScore } from '../../services/user'
+import MenuBar from '../../components/MenuBar/MenuBar'
+import LeaderList from '../../components/LeaderList/LeaderList'
+import styles from './leaderboard.module.css'
 
 export default function Leaderboard() {
   const [scoreLeaders, setScoreLeaders] = useState([])

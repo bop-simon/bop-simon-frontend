@@ -8,19 +8,16 @@ export async function postProfile({ score, bio}) {
 
 export async function getAllProfiles() {
   const response = await request.get(`${process.env.PROD_URL}/profiles`)
-
   return response.body; 
 }
 
 export async function getProfileById(id) {
   const response = await request.get(`${process.env.PROD_URL}/profiles/${id}`)
-
   return response.body;
 }
 
 export async function deleteProfile(id) {
   const response = await request.delete(`${process.env.PROD_URL}/profiles/${id}`)
-
   return response.body;
 }
 

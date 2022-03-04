@@ -1,9 +1,9 @@
-import { screen, render, fireEvent } from '@testing-library/react'
-import { MemoryRouter } from 'react-router-dom'
-import UserProvider, { UserContext } from '../../context/UserContext'
 import Home from './Home'
 import React from 'react'
 import * as Tone from 'tone'
+import { screen, render, fireEvent } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
+import UserProvider from '../../context/UserContext'
 
 it('confirms that we are cool', () => {
   const us = 'cool'

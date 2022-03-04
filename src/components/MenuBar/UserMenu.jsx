@@ -45,7 +45,7 @@ export default function UserMenu() {
         color="inherit"
         className={styles.iconC}
       >
-       <img className={styles.accountIcon} src={circle} alt="" />
+        <img className={styles.accountIcon} src={circle} alt="" />
       </IconButton>
       <Menu
         id="menu-appbar"

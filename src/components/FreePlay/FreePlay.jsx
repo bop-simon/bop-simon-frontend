@@ -1,10 +1,8 @@
 import * as Tone from 'tone'
 import styles from './freeplay.module.css'
-import { useEffect, useState } from 'react'
-import { getAllUserSongs, postUserSong } from '../../services/songs'
+import { useState } from 'react'
+import { postUserSong } from '../../services/songs'
 import { Button } from '@mui/material'
-import { get } from 'superagent'
-import { getCurrentUser } from '../../services/user.js'
 
 export default function FreePlay() {
   const [isRecording, setIsRecording] = useState(false)
@@ -13,15 +11,15 @@ export default function FreePlay() {
   let notesArray = []
 
   const synthSounds = {
-  oscillator: {
-    type: 'triangle2'
-  },
-  envelope: {
-    attack: 0.001,
-    decay: 1.5,
-    sustain: 0.2,
-    release: 0.8
-  }
+    oscillator: {
+      type: 'triangle2'
+    },
+    envelope: {
+      attack: 0.001,
+      decay: 1.5,
+      sustain: 0.2,
+      release: 0.8
+    }
   }
   const limiter = new Tone.Limiter(-2)
   const synth = new Tone.Synth(synthSounds).chain(limiter).toDestination()
@@ -48,16 +46,13 @@ export default function FreePlay() {
 
   const stopRecording = async () => {
     setIsRecording(false)
-
     setFavSong(notesArray)
     if (notesArray.length === 0) {
       alert('song must contain notes to save')
       return
     }
-    window.alert('Your song has been saved! I guess.')
-
+    window.alert('Your song has been saved! I')
     await postUserSong(notesArray)
-
     setFavSong(notesArray)
     await postUserSong(notesArray)
   }
@@ -67,42 +62,33 @@ export default function FreePlay() {
   }
 
   function playInterval(notes) {
-    const limiter = new Tone.Limiter(-2);
+    const limiter = new Tone.Limiter(-2)
     const now = Tone.now()
-    const synth = new Tone.Synth(synthSounds).chain(limiter).toDestination();
-    const interval = new Tone.Sequence(function(time, note){
-        synth.triggerAttackRelease(note, now);
-    }, notes, "4n");
+    const synth = new Tone.Synth(synthSounds).chain(limiter).toDestination()
+    const interval = new Tone.Sequence(
+      function (time, note) {
+        synth.triggerAttackRelease(note, now)
+      },
+      notes,
+      '4n'
+    )
     //8n super fast >> 1n very slow
 
     //begin at the beginning
-    interval.loop = false;
-    interval.start(0);
-    Tone.Transport.start("+0.1");
-}
+    interval.loop = false
+    interval.start(0)
+    Tone.Transport.start('+0.1')
+  }
 
   return (
     <section className={styles.gameMain}>
       <div className={styles.App}>
         <div className={styles.controlsRecord}>
           <Button onClick={startRecording}>Record</Button>
-          {
-            isRecording ?
-            <Button onClick={stopRecording}>Stop</Button> :
-            ''
-          }
+          {isRecording ? <Button onClick={stopRecording}>Stop</Button> : ''}
         </div>
         <div className={styles.main}>
           <div className={styles.container}>
-            {/*
-            C = Pink
-            D = Yellow
-            E = Grey
-            F = Purple x 1,000
-            G = Tuscany
-            A = Bop Simon Green
-            B = Bop Simon Blue
-            */}
             <div
               onClick={() => {
                 playNote('c2')

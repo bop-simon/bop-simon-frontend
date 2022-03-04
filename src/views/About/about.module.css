@@ -23,6 +23,7 @@
 .aboutHeading {
   color: #fcd116;
 }
+
 .team{
   display: flex;
   flex-direction: row;
@@ -32,6 +33,13 @@
   align-items: center;
   line-height: normal;
 }
-.link{
-  color:#fcd116
+
+.aboutCard a:link,
+a:visited {
+  text-decoration: none;
+  color: #fcd116;
+}
+
+.aboutCard a:hover{
+  color:#3BC06F 
 }

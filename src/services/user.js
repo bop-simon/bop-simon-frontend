@@ -14,22 +14,17 @@ export async function getAllUsers() {
 
 export async function getUserById(id) {
   const response = await request.get(`${process.env.PROD_URL}/users/${id}`)
-
   return response.body;
 }
 
 export async function getCurrentUser() {
   console.log('hello from users.js')
   const response = await request.get(`${process.env.PROD_URL}/users/currentuser`).withCredentials()
-
-  console.log("current user response", response.body)
-
   return response.body
 }
 
 export async function deleteUser(id) {
   const response = await request.delete(`${process.env.PROD_URL}/users/${id}`)
-
   return response.body;
 }
 
@@ -44,7 +39,6 @@ export async function updateScore(id, score) {
   .send(score)
   return response.body;
 }
-
 
 export async function getByHighScore(){
   const response = await request
