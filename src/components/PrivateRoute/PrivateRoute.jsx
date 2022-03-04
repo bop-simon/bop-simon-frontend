@@ -6,7 +6,7 @@ import { useUser } from '../../context/UserContext.jsx';
 export default function PrivateRoute({ children }) {
 
   const { user, loading } = useUser();
-  console.log(user);
+
   if (loading) {
     return (<p>Loading</p>)
   }

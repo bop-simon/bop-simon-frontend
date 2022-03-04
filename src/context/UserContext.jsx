@@ -6,13 +6,12 @@ const UserContext = createContext()
 const UserProvider = ({children}) =>{
     const [user, setUser] = useState({});
     const [loading, setLoading] = useState(true)
-    console.log('USER IN CONTEXT', user)
+
+    console.log('current user', user)
 
     useEffect(() => {
       const fetchCurrentUser = async() => {
-        console.log('hey hi helooooooo')
         const currentUser = await getCurrentUser()
-        console.log("current user", currentUser)
         if (currentUser.username) {
           setUser(currentUser)
         } else {

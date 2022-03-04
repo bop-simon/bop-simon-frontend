@@ -25,3 +25,8 @@ export async function signOut(){
    .withCredentials()
 return response.body;
 }
+// export async function signOut(){
+//    const response = await fetch(`${process.env.PROD_URL}/users/sessions`, {method: 'DELETE', credentials: 'include'})
+
+// return response.body;
+// }
