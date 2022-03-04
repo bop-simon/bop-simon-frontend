@@ -1,5 +1,5 @@
 function randomNumber() {
-  const numbers ='23456'
+  const numbers ='12345'
   return numbers[Math.floor(Math.random() * numbers.length)]
 }
 
@@ -16,7 +16,8 @@ export function getRandomNote() {
 
 export function getCurrentSong(level){
     let currentSong = []
-    const songLength = 2
+    const songLength = (level) + 2
+    // const songLength = 2
     for (let i = 0; i < songLength; i++){
       const note = getRandomNote()
       currentSong.push(note)

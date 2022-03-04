@@ -1,19 +1,51 @@
 import * as Tone from 'tone'
 import styles from './game.module.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { getCurrentSong } from '../../utils/Gameplay/gamelogic'
 import { useUser } from '../../context/UserContext'
 import { editsProfile } from '../../services/profile'
+import { getCurrentUser } from '../../services/user'
 
 export default function Game() {
   const { user, setUser } = useUser()
 
-  let userLevel = user.score / 5 + 1
+  const userLevel = Number(user.score / 5)
+
+  const [ currentUserLevel, setCurrentUserLevel ] = useState(userLevel)
+
+  console.log(currentUserLevel, 'outside useEffect currentUserLevel')
+
+  useEffect(() => {
+    const newScore = user.score
+    const fetchUser = async () => {
+      await setUser({...user, score: newScore})
+    }
+    fetchUser()   
+    console.log(currentUserLevel, 'currentUserLevel')
+  }, [currentUserLevel])
+
+  async function levelUp(user) {
+    cpuHistory = []
+    turnNumber = 1
+    currentSong = getCurrentSong(currentUserLevel)
+   let newScore = Number(user.score + 5)
+
+    await editsProfile({ score: newScore, bio: user.bio })
+
+    // user.score === 0 ? setCurrentUserLevel(Number(1))
+//  setCurrentUserLevel(Number(Math.ceil((newScore / 5) * 10)))
+  setCurrentUserLevel(Number(newScore / 5))
+
+    console.log(user.score, 'user score')
+    console.log(currentUserLevel, 'currentUserLevel levelup')
+    alert(`Yaas! You leveled up! Your level is now ${currentUserLevel} because that is what you deserve`)
+  }
+
 
   let currentTurnNotes = []
   let cpuHistory = []
   let turnNumber = 1
-  let currentSong = getCurrentSong(userLevel)
+  let currentSong = getCurrentSong(currentUserLevel)
   console.log(currentSong, 'current song')
   let turnTimeout, nextTurnTimeout
 
@@ -34,22 +66,18 @@ export default function Game() {
   function gameOver() {
     cpuHistory = []
     turnNumber = 1
-    currentSong = getCurrentSong(userLevel)
+    currentSong = getCurrentSong(currentUserLevel)
     console.log(currentSong, 'loser')
-    alert('you lose')
+    alert('you lost? Not surprised.')
   }
 
-  function levelUp(user) {
-    const newScore = user.score + 5
-    editsProfile({ score: newScore, bio: user.bio })
-    console.log(user.score)
-    alert(`Yaas! You leveled up! Your level is now ${user.score}`)
+  function reset() {
+    editsProfile({ score: 0, bio: user.bio })
   }
 
   function startGame() {
     console.log('>>>>>>>>>>>>>>>>> new turn (cpu) <<<<<<<<<<<<<<,')
     currentTurnNotes = []
-    console.log('hello')
     for (let i = 0; i < turnNumber; i++) {
       const note = currentSong[i]
       setTimeout(() => {
@@ -59,6 +87,7 @@ export default function Game() {
         cpuHistory.push(note)
       }
       console.log('cpu history', cpuHistory, 'current song', currentSong)
+
     }
   }
 
@@ -78,7 +107,7 @@ export default function Game() {
         }
       }
       for (let i = 0; i < currentTurnNotes.length; i++) {
-        if (currentSong[i] === currentTurnNotes[i]) {
+        if (currentSong.length === currentTurnNotes.length) {
           wonGame = true
         }
       }
@@ -92,7 +121,7 @@ export default function Game() {
         clearTimeout(turnTimeout)
         clearTimeout(nextTurnTimeout)
         levelUp(user)
-        }
+      }
     }, 1500)
 
     nextTurnTimeout = setTimeout(() => {
@@ -100,12 +129,6 @@ export default function Game() {
       startGame()
     }, 1500)
   }
-
-  // function winRound() {
-  // if (currentTurnNotes === currentSong){
-  // levelUp(user)
-  //}
-  //}
 
   function playNote(note) {
     const element = document.getElementById(note)
@@ -119,11 +142,19 @@ export default function Game() {
     }, 1000)
   }
 
+  
   return (
     <section className={styles.gameMain}>
       <div className={styles.App}>
         <div className={styles.main}>
           <div className={styles.container}>
+            <div onClick={() => handleClick('c1')} id="c1"></div>
+            <div onClick={() => handleClick('d1')} id="d1"></div>
+            <div onClick={() => handleClick('e1')} id="e1"></div>
+            <div onClick={() => handleClick('f1')} id="f1"></div>
+            <div onClick={() => handleClick('g1')} id="g1"></div>
+            <div onClick={() => handleClick('a1')} id="a1"></div>
+            <div onClick={() => handleClick('b1')} id="b1"></div>
             <div
               onClick={() => handleClick('c2')}
               id="c2"
@@ -156,15 +187,9 @@ export default function Game() {
             <div onClick={() => handleClick('g5')} id="g5"></div>
             <div onClick={() => handleClick('a5')} id="a5"></div>
             <div onClick={() => handleClick('b5')} id="b5"></div>
-            <div onClick={() => handleClick('c6')} id="c6"></div>
-            <div onClick={() => handleClick('d6')} id="d6"></div>
-            <div onClick={() => handleClick('e6')} id="e6"></div>
-            <div onClick={() => handleClick('f6')} id="f6"></div>
-            <div onClick={() => handleClick('g6')} id="g6"></div>
-            <div onClick={() => handleClick('a6')} id="a6"></div>
-            <div onClick={() => handleClick('b6')} id="b6"></div>
           </div>
           <button onClick={startGame}>start</button>
+          <button onClick={reset}>julius wins</button>
         </div>
       </div>
     </section>
