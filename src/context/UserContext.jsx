@@ -7,12 +7,13 @@ const UserContext = createContext()
 const UserProvider = ({children}) =>{
     const [user, setUser] = useState({});
     const [loading, setLoading] = useState(true)
+    const [userScore, setUserScore] = useState();
 
     useEffect(() => {
       const fetchCurrentUser = async() => {
       try {
           const currentUser = await getCurrentUser()
-      
+
           if (currentUser.username) {
             setUser(currentUser)
             // setLoading(false)
@@ -25,8 +26,8 @@ const UserProvider = ({children}) =>{
         } finally {
           setLoading(false)
         }
-      } 
- 
+      }
+
       fetchCurrentUser()
     }, [])
 

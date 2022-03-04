@@ -10,7 +10,7 @@ export default function FreePlay() {
   const [isRecording, setIsRecording] = useState(false)
   const [favSong, setFavSong] = useState([])
 
-  let notesArray = [] 
+  let notesArray = []
 
   const synthSounds = {
   oscillator: {
@@ -54,6 +54,7 @@ export default function FreePlay() {
       alert('song must contain notes to save')
       return
     }
+    window.alert('recording finished, check profile for saved recordings')
 
     await postUserSong(notesArray)
 
@@ -76,7 +77,7 @@ export default function FreePlay() {
 
     //begin at the beginning
     interval.loop = false;
-    interval.start(0);    
+    interval.start(0);
     Tone.Transport.start("+0.1");
 }
 
@@ -89,7 +90,7 @@ export default function FreePlay() {
             isRecording ?
             <Button onClick={stopRecording}>Stop</Button> :
             ''
-          }        
+          }
         </div>
         <div className={styles.main}>
           <div className={styles.container}>
