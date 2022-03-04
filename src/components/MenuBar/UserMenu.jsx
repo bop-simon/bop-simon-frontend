@@ -1,4 +1,4 @@
-import AccountCircle from '@mui/icons-material/AccountCircle'
+import circle from '../../assets/circle.png'
 import { IconButton, MenuItem, Menu } from '@mui/material'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
@@ -33,7 +33,6 @@ export default function UserMenu() {
   return (
     <>
       <div className={styles.userInfo}>
-        {/* <h3>Rank 3</h3> */}
         <h3>{user.username}</h3>
         <h3>score: {user.score ? user.score : `0`}</h3>
       </div>
@@ -44,8 +43,9 @@ export default function UserMenu() {
         aria-haspopup="true"
         onClick={handleMenu}
         color="inherit"
+        className={styles.iconC}
       >
-        <AccountCircle />
+       <img className={styles.accountIcon} src={circle} alt="" />
       </IconButton>
       <Menu
         id="menu-appbar"

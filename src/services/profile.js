@@ -1,8 +1,8 @@
 import request from "superagent";
 
-export async function postProfile({ id, score, bio}) {
-  const response = await request.post(`${process.env.PROD_URL}/profiles/${id}`)
-  .send({user_id: id, score, bio })
+export async function postProfile({ score, bio}) {
+  const response = await request.post(`${process.env.PROD_URL}/profiles`).withCredentials()
+  .send({ score, bio })
   return response.body; 
 }
 
@@ -24,8 +24,8 @@ export async function deleteProfile(id) {
   return response.body;
 }
 
-export async function editsProfile(id, {score, bio}) {
-  const response = await request.put(`${process.env.PROD_URL}/profiles/${id}`)
-  .send(score, bio)
+export async function editsProfile({score, bio}) {
+  const response = await request.patch(`${process.env.PROD_URL}/profiles`)
+  .send({ score, bio }).withCredentials()
   return response.body;
 }
