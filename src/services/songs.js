@@ -5,10 +5,9 @@ export async function postUserSong(notesArray){
   return response.body;
 }
 
-
 export async function getAllUserSongs() {
-  const response = await request.get(`${process.env.PROD_URL}/usersongs`);
-  return response.body.map((song) => JSON.parse(song));
+  const response = await request.get(`${process.env.PROD_URL}/usersongs`).withCredentials();
+  return response.body.map((song) => { return {id: song.id, notes: JSON.parse(song.notes)}});
 }
 
 export async function deleteUserSongs(id) {

@@ -45,21 +45,20 @@ const theme = createTheme({
         padding: 1,
         '&$checked, &$colorPrimary$checked, &$colorSecondary$checked': {
           transform: 'translateX(16px)',
-          color: '#fff',
           '& + $track': {
             opacity: 1,
-            border: 'none'
+            border: 1,
           }
         }
       },
       thumb: {
         width: 24,
-        height: 24
+        height: 24,
       },
       track: {
         borderRadius: 13,
         border: '1px solid #bdbdbd',
-        backgroundColor: '#fafafa',
+        backgroundColor: 'purple',
         opacity: 1,
         transition:
           'background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms'
