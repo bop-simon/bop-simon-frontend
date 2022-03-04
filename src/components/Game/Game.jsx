@@ -1,5 +1,4 @@
 import * as Tone from 'tone'
-import { useState } from 'react'
 import { useUser } from '../../context/UserContext'
 import styles from './game.module.css'
 import { Button } from '@mui/material'

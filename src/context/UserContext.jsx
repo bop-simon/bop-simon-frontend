@@ -7,7 +7,6 @@ const UserContext = createContext()
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState({})
   const [loading, setLoading] = useState(true)
-  const [userScore, setUserScore] = useState()
 
   useEffect(() => {
     const fetchCurrentUser = async () => {
