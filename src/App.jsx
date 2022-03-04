@@ -19,6 +19,7 @@ export default function App() {
             <Route path="/" element={<Splash />} />
             <Route path="auth" element={<Auth />} />
             <Route path="home" element={ <PrivateRoute children={<Home />}/> } />
+            <Route path="home/:id" element={ <PrivateRoute children={<Home />}/> } />
             <Route path="leaderboard" element={<Leaderboard />} />
             <Route path="about" element={<About />} />
             <Route path="profile" element={<Profile />} />
