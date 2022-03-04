@@ -3,7 +3,7 @@ import styles from './game.module.css'
 import { useState } from 'react'
 import { getCurrentSong } from '../../utils/Gameplay/gamelogic'
 import { useUser } from '../../context/UserContext'
-import { updateScore } from '../../services/user'
+import { editsProfile } from '../../services/profile'
 
 export default function Game() {
   const { user, setUser } = useUser()
@@ -40,7 +40,9 @@ export default function Game() {
   }
 
   function levelUp(user) {
-    updateScore(user.id, user.score)
+    const newScore = user.score + 5
+    editsProfile({ score: newScore, bio: user.bio })
+    console.log(user.score)
     alert(`Yaas! You leveled up! Your level is now ${user.score}`)
   }
 
@@ -67,6 +69,7 @@ export default function Game() {
     playNote(note)
     currentTurnNotes.push(note)
     let wrongNote = false
+    let wonGame = false
 
     turnTimeout = setTimeout(() => {
       for (let i = 0; i < cpuHistory.length; i++) {
@@ -74,13 +77,22 @@ export default function Game() {
           wrongNote = true
         }
       }
+      for (let i = 0; i < currentTurnNotes.length; i++) {
+        if (currentSong[i] === currentTurnNotes[i]) {
+          wonGame = true
+        }
+      }
       if (wrongNote) {
         clearTimeout(turnTimeout)
         clearTimeout(nextTurnTimeout)
         gameOver()
-        // Stop playing!!
-        // user.score + 5
       }
+      if (wonGame) {
+        console.log('howdy')
+        clearTimeout(turnTimeout)
+        clearTimeout(nextTurnTimeout)
+        levelUp(user)
+        }
     }, 1500)
 
     nextTurnTimeout = setTimeout(() => {
@@ -89,11 +101,11 @@ export default function Game() {
     }, 1500)
   }
 
-// function winRound() {
- // if (currentTurnNotes === currentSong){
+  // function winRound() {
+  // if (currentTurnNotes === currentSong){
   // levelUp(user)
- //}
-//}
+  //}
+  //}
 
   function playNote(note) {
     const element = document.getElementById(note)
@@ -111,7 +123,6 @@ export default function Game() {
     <section className={styles.gameMain}>
       <div className={styles.App}>
         <div className={styles.main}>
-          <p>This is the Game Play Board</p>
           <div className={styles.container}>
             <div
               onClick={() => handleClick('c2')}
