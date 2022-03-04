@@ -8,8 +8,6 @@ const UserProvider = ({children}) =>{
     const [user, setUser] = useState({});
     const [loading, setLoading] = useState(true)
     console.log('USER IN CONTEXT', user)
-
-    // const [userLevel, setUserLevel] = useState(0)
    
     useEffect(() => {
       const fetchCurrentUser = async() => {
@@ -25,20 +23,6 @@ const UserProvider = ({children}) =>{
       } 
       fetchCurrentUser()
     }, [])
-
-    
-    // useEffect(() => {
-    //   const fetchLevel = async () => {
-    //     const oneProfile = await getProfileById(id)
-    //     console.log('profile', oneProfile)
-    //     if(oneProfile){
-    //       setLevel(oneProfile)
-    //     } else {
-    //       setLevel(0)
-    //     }
-    //   }
-    //   fetchLevel()
-    // }, [])
 
     const value = useMemo(() => ({ user, setUser, loading }), [user, loading]);
 
