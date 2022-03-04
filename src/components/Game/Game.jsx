@@ -1,17 +1,53 @@
 import * as Tone from 'tone'
 import styles from './game.module.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { getCurrentSong } from '../../utils/Gameplay/gamelogic'
+import { useUser } from '../../context/UserContext'
+import { editsProfile } from '../../services/profile'
+import { getCurrentUser } from '../../services/user'
 
 export default function Game() {
-  //set the level in UserContext to grab it later
-  // const {user, setUser, userLevel, setUserLevel}= useUser()
+  const { user, setUser } = useUser()
+
+  const userLevel = Number(user.score / 5)
+
+  const [ currentUserLevel, setCurrentUserLevel ] = useState(userLevel)
+
+  console.log(currentUserLevel, 'outside useEffect currentUserLevel')
+
+  useEffect(() => {
+    const newScore = user.score
+    const fetchUser = async () => {
+      await setUser({...user, score: newScore})
+    }
+    fetchUser()   
+    console.log(currentUserLevel, 'currentUserLevel')
+  }, [currentUserLevel])
+
+  async function levelUp(user) {
+    cpuHistory = []
+    turnNumber = 1
+    currentSong = getCurrentSong(currentUserLevel)
+   let newScore = Number(user.score + 5)
+
+    await editsProfile({ score: newScore, bio: user.bio })
+
+    // user.score === 0 ? setCurrentUserLevel(Number(1))
+//  setCurrentUserLevel(Number(Math.ceil((newScore / 5) * 10)))
+  setCurrentUserLevel(Number(newScore / 5))
+
+    console.log(user.score, 'user score')
+    console.log(currentUserLevel, 'currentUserLevel levelup')
+    alert(`Yaas! You leveled up! Your level is now ${currentUserLevel} because that is what you deserve`)
+  }
+
 
   let currentTurnNotes = []
   let cpuHistory = []
   let turnNumber = 1
-  const currentSong = ['c2', 'c3', 'c4']
-  let turnTimeout, nextTurnTimeout;
+  let currentSong = getCurrentSong(currentUserLevel)
+  console.log(currentSong, 'current song')
+  let turnTimeout, nextTurnTimeout
 
   const synthSounds = {
     oscillator: {
@@ -29,47 +65,66 @@ export default function Game() {
 
   function gameOver() {
     cpuHistory = []
-    alert('you lose')
+    turnNumber = 1
+    currentSong = getCurrentSong(currentUserLevel)
+    console.log(currentSong, 'loser')
+    alert('you lost? Not surprised.')
+  }
+
+  function reset() {
+    editsProfile({ score: 0, bio: user.bio })
   }
 
   function startGame() {
-    console.log('>>>>>>>>>>>>>>>>> new turn <<<<<<<<<<<<<<,')
+    console.log('>>>>>>>>>>>>>>>>> new turn (cpu) <<<<<<<<<<<<<<,')
     currentTurnNotes = []
     for (let i = 0; i < turnNumber; i++) {
       const note = currentSong[i]
       setTimeout(() => {
         playNote(note)
       }, i * 1000)
-      // push last note played
       if (i === cpuHistory.length) {
         cpuHistory.push(note)
       }
-      console.log('cpu history', cpuHistory)
-    }
+      console.log('cpu history', cpuHistory, 'current song', currentSong)
 
+    }
   }
 
   const handleClick = (note) => {
-    console.log('>>>>>new click<<<')
+    console.log('>>>>>new click (user)<<<')
     clearTimeout(turnTimeout)
     clearTimeout(nextTurnTimeout)
     playNote(note)
     currentTurnNotes.push(note)
     let wrongNote = false
-    console.log('currentTurnNotes', currentTurnNotes)
-    turnTimeout =  setTimeout(() => {
+    let wonGame = false
+
+    turnTimeout = setTimeout(() => {
       for (let i = 0; i < cpuHistory.length; i++) {
-        console.log('currentTurnNotes[i]', currentTurnNotes[i], 'cpuHistory', cpuHistory[i])
-        console.log('i', i, 'current turn notes', currentTurnNotes, cpuHistory, '< cpu history')
         if (cpuHistory[i] !== currentTurnNotes[i]) {
           wrongNote = true
         }
       }
+      for (let i = 0; i < currentTurnNotes.length; i++) {
+        if (currentSong.length === currentTurnNotes.length) {
+          wonGame = true
+        }
+      }
       if (wrongNote) {
+        clearTimeout(turnTimeout)
+        clearTimeout(nextTurnTimeout)
         gameOver()
       }
+      if (wonGame) {
+        console.log('howdy')
+        clearTimeout(turnTimeout)
+        clearTimeout(nextTurnTimeout)
+        levelUp(user)
+      }
     }, 1500)
-  nextTurnTimeout = setTimeout(() => {
+
+    nextTurnTimeout = setTimeout(() => {
       turnNumber++
       startGame()
     }, 1500)
@@ -87,21 +142,19 @@ export default function Game() {
     }, 1000)
   }
 
+  
   return (
     <section className={styles.gameMain}>
       <div className={styles.App}>
         <div className={styles.main}>
-          <p>This is the Game Play Board</p>
           <div className={styles.container}>
-            {/* 
-            C = Pink 
-            D = Yellow 
-            E = Grey 
-            F = Purple x 1,000 
-            G = Tuscany 
-            A = Bop Simon Green
-            B = Bop Simon Blue 
-            */}
+            <div onClick={() => handleClick('c1')} id="c1"></div>
+            <div onClick={() => handleClick('d1')} id="d1"></div>
+            <div onClick={() => handleClick('e1')} id="e1"></div>
+            <div onClick={() => handleClick('f1')} id="f1"></div>
+            <div onClick={() => handleClick('g1')} id="g1"></div>
+            <div onClick={() => handleClick('a1')} id="a1"></div>
+            <div onClick={() => handleClick('b1')} id="b1"></div>
             <div
               onClick={() => handleClick('c2')}
               id="c2"
@@ -132,8 +185,11 @@ export default function Game() {
             <div onClick={() => handleClick('e5')} id="e5"></div>
             <div onClick={() => handleClick('f5')} id="f5"></div>
             <div onClick={() => handleClick('g5')} id="g5"></div>
+            <div onClick={() => handleClick('a5')} id="a5"></div>
+            <div onClick={() => handleClick('b5')} id="b5"></div>
           </div>
           <button onClick={startGame}>start</button>
+          <button onClick={reset}>julius wins</button>
         </div>
       </div>
     </section>

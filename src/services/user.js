@@ -39,6 +39,13 @@ export async function editsUser(id, password) {
   return response.body;
 }
 
+export async function updateScore(id, score) {
+  const response = await request.put(`${process.env.PROD_URL}/users/${id}`)
+  .send(score)
+  return response.body;
+}
+
+
 export async function getByHighScore(){
   const response = await request
   .get(`${process.env.PROD_URL}/users/leaderboard`);
