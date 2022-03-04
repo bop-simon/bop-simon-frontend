@@ -1,5 +1,4 @@
 import * as Tone from 'tone'
-import { useState } from 'react'
 import { useUser } from '../../context/UserContext'
 import styles from './game.module.css'
 import { Button } from '@mui/material'
@@ -51,7 +50,6 @@ export default function Game() {
     cpuHistory = []
     turnNumber = 1
     currentSong = getCurrentSong(userLevel)
-    console.log(currentSong, 'loser')
     alert('you lost? Not surprised.')
   }
 
