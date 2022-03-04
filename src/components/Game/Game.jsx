@@ -1,7 +1,9 @@
 import * as Tone from 'tone'
-import styles from './game.module.css'
-import { getCurrentSong } from '../../utils/gamelogic'
+import { useState } from 'react'
 import { useUser } from '../../context/UserContext'
+import styles from './game.module.css'
+import { Button } from '@mui/material'
+import { getCurrentSong } from '../../utils/gamelogic'
 import { editsProfile } from '../../services/profile'
 
 export default function Game() {
@@ -126,6 +128,7 @@ export default function Game() {
     <section className={styles.gameMain}>
       <div className={styles.App}>
         <div className={styles.main}>
+
           <div className={styles.container}>
             {/* 
             Ministry of Beeps and Boops
@@ -169,8 +172,8 @@ export default function Game() {
             <div onClick={() => handleClick('g5')} id="g5"></div>
             <div onClick={() => handleClick('a5')} id="a5"></div>
             <div onClick={() => handleClick('b5')} id="b5"></div>
-          </div>
-          <button onClick={startGame}>start</button>
+          </div>  
+          <Button variant="outlined" onClick={startGame}>start</Button>
         </div>
       </div>
     </section>
