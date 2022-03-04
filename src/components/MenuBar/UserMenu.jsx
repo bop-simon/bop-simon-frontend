@@ -34,7 +34,8 @@ export default function UserMenu() {
     <>
       <div className={styles.userInfo}>
         <h3>{user.username}</h3>
-        <h3>score: {user.score ? user.score : `0`}</h3>
+       <h3> <i>level: {user.score ? user.score/5 : `0`}</i> {' '}🎵{' '}<i>
+        score: {user.score ? user.score : `0`}</i></h3>
       </div>
       <IconButton
         size="large"

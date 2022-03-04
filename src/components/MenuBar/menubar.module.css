@@ -27,3 +27,10 @@ a:visited {
 a:hover {
   color:#3BC06F
 }
+
+h3 {
+  font-size: .85em;
+  font-weight: 600;
+  margin: 0;
+  color:#333;
+}
