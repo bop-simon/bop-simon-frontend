@@ -34,7 +34,7 @@ export default function About() {
           />
           <h2>Taylor</h2>
           <br></br>
-          <p>Full Stack Dev || Bop Certified <a className={styles.link} href='https://www.linkedin.com/in/taylor-c-williams/'>LinkedIn</a> // <a className={styles.link} href='https://github.com/taylor-c-williams'>Github</a></p>
+          <p>Full Stack Dev || S Tier Bop <a className={styles.link} href='https://www.linkedin.com/in/taylor-c-williams/'>LinkedIn</a> // <a className={styles.link} href='https://github.com/taylor-c-williams'>Github</a></p>
           </div>
          <br></br>
           <div className={styles.team}>
