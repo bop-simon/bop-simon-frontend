@@ -50,7 +50,6 @@ export default function Game() {
     cpuHistory = []
     turnNumber = 1
     currentSong = getCurrentSong(userLevel)
-    console.log(currentSong, 'loser')
     alert('you lost? Not surprised.')
   }
 
