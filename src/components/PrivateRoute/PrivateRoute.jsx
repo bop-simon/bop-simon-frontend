@@ -6,14 +6,15 @@ import { useUser } from '../../context/UserContext.jsx';
 export default function PrivateRoute({ children }) {
 
   const { user, loading } = useUser();
-  console.log(user);
+  console.log(loading)
+
   if (loading) {
     return (<p>Loading</p>)
   }
 
   return ( 
     <>
-      {user.username ? 
+      {user?.username ? 
       children : 
       <Navigate 
         to='/auth'/>}

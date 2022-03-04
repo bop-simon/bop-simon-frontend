@@ -7,10 +7,6 @@ import { logIn, signUp } from "../../services/auth.js";
 import { postProfile } from "../../services/profile.js";
 import { getCurrentUser, getUserById } from "../../services/user.js";
 import styles from './auth.css'
-///when we submit our username/password on login or signup
-///the message signed in sucessfully is set as the user in context
-///if we hardcode the home view 
-
 
 export default function Auth() {
   const navigate = useNavigate()
@@ -24,15 +20,16 @@ export default function Auth() {
     password: ''
   })
 
-  console.log('is signing up', isSigningUp)
-
   const handleSignUp = async () => {
     const { username, password } = formData
+
     if(username.length < 2) {
       setFormError('please enter a username greater than 1 character')
+      return
     }
     if(password.length < 8) {
-      setFormError('please enter a password with more than 8 characters.')
+      setFormError('password must have > 8 characters.')
+      return
     }
     try {
         await signUp(username, password)
@@ -51,13 +48,17 @@ export default function Auth() {
 
     if(username.length < 2) {
       setFormError('please enter a username greater than 1 character')
+      return
     }
     if(password.length < 8) {
       setFormError('please enter a password with more than 8 characters.')
+      return
     }
 
       try {
-        await logIn(username, password)
+        const userLogin = await logIn(username, password)
+          console.log('USER LOGIN', userLogin)
+
         const user = await getCurrentUser()
         await setUser(user)
 
