@@ -34,7 +34,7 @@ export default function About() {
           />
           <h2>Taylor</h2>
           <br></br>
-          <p>Chase ball of string eat plants, meow, and throw up because I ate plants going to catch the red dot today going to catch the red dot today. I could pee on this if I had the energy. <a className={styles.link} href='https://www.linkedin.com/in/taylor-c-williams/'>LinkedIn</a> // <a className={styles.link} href='https://github.com/taylor-c-williams'>Github</a></p>
+          <p>Full Stack Dev || Bop Certified <a className={styles.link} href='https://www.linkedin.com/in/taylor-c-williams/'>LinkedIn</a> // <a className={styles.link} href='https://github.com/taylor-c-williams'>Github</a></p>
           </div>
          <br></br>
           <div className={styles.team}>
@@ -46,7 +46,7 @@ export default function About() {
           />
           <h2>Katie</h2>
           <br></br>
-          <p>Full Stack Software Engineer || Lover of Bops <a className={styles.link} href='https://www.linkedin.com/in/k-schrattenholzer/'>LinkedIn</a> // <a className={styles.link} href='https://github.com/k-schrattenholzer'>Github</a></p>
+          <p>Full Stack Software Engineer || Bop Certified <a className={styles.link} href='https://www.linkedin.com/in/k-schrattenholzer/'>LinkedIn</a> // <a className={styles.link} href='https://github.com/k-schrattenholzer'>Github</a></p>
           </div>
          <br></br>
           <div className={styles.team}>
@@ -58,7 +58,7 @@ export default function About() {
           />
           <h2>Julius</h2>
           <br></br>
-          <p>Intently stare at the same spot need to chase tail, so sit on human they not getting up ever eat the rubberband a nice warm laptop for me to sit on but cat ass trophy. Catch small lizards, bring them into house, then unable to find them on carpet. <a className={styles.link} href='https://www.linkedin.com/in/juliusfranklin88/'>LinkedIn</a> // <a className={styles.link} href='https://github.com/coding-neophyte'>Github</a></p>
+          <p>Full Stack Software Engineer || Bop Certified <a className={styles.link} href='https://www.linkedin.com/in/juliusfranklin88/'>LinkedIn</a> // <a className={styles.link} href='https://github.com/coding-neophyte'>Github</a></p>
           </div>
          <br></br>
           <div className={styles.team}>
@@ -70,7 +70,7 @@ export default function About() {
           />
           <h2>Sarani</h2>
           <br></br>
-          <p>My favorite thing about this app was learning how tonejs works and how to utilize it. studying the game logic was a lot of fun and planning out and studying it was amazing. It was a lot of fun playing with different notes and I am glad that this team incorporated a free-play that allows users to join in on the fun. <a className={styles.link} href='https://www.linkedin.com/in/emily-sarani/'>LinkedIn</a> // <a className={styles.link} href='https://github.com/EmilyDSarani'>Github</a> </p>
+          <p>Full Stack Developer || Bop Certified <a className={styles.link} href='https://www.linkedin.com/in/emily-sarani/'>LinkedIn</a> // <a className={styles.link} href='https://github.com/EmilyDSarani'>Github</a> </p>
           </div>
         </div>
       </section>
