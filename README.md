@@ -5,7 +5,7 @@ Bop Simon is a full-stack interactive musical memory game built in React, Tone.J
 <br>
 ### TECHNOLOGIES:
 * Tone.Js
-* React/React Router
+* React/React Router v.6
 * Express
 * PostgreSQL
 * JSON Web Token
