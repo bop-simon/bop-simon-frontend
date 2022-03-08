@@ -1,10 +1,3 @@
-Icons from Flaticon.com ?
-Material UI
-jest
-react testing library
-framer motion
-tone.js
-
 # Bop-Simon
 
 ### Taylor Callan Williams
@@ -38,8 +31,8 @@ tone.js
 
 1. React
 2. React-Router-Dom
-3. Netlify
-4. Supabase
+3. Tone.Js
+4. Netlify
 5. Heroku
 
 <br>
