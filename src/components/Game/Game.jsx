@@ -43,7 +43,7 @@ export default function Game() {
     alert(
       `Yaas! You leveled up! Your level is now ${
         userLevel + 1
-      } because that is what you deserve`
+      }! Click Start to begin the next level.`
     )
   }
 
